@@ -84,8 +84,8 @@ enquiry; then as staff, open Enquiries, build a quotation and send it; back as t
 
 ## Tests
 
-This repo holds the most important tests (539 backend, 103 frontend); the full suites (about 920 backend and 130
-frontend tests) are in the team repositories.
+This repo holds about 200 of the most important tests (152 backend, 54 frontend); the full suites (about 920 backend
+and 130 frontend tests) are in the team repositories.
 
 **Backend** (needs its own test database, never the one you use day to day):
 
@@ -95,9 +95,9 @@ cp .env .env.testing      # then set APP_ENV=testing, APP_TODAY=2026-09-04 and a
 vendor/bin/phpunit
 ```
 
-The tests cover reservations (including two guests booking the same dates at the same moment), holds, the booking
-lifecycle, the scheduled job, stays, rates, enquiries, quotations, events, tickets, payments and PayFast checks,
-promo codes, cancelling, team rules, sign-in and which routes each role may use.
+The tests cover reservations (including two guests booking the same dates at the same moment), availability, holds,
+the booking lifecycle, the scheduled job, stays, enquiries, quotations, events, tickets, payments and PayFast checks,
+cancelling, accounts, sign-in and which routes each role may use.
 
 **Frontend:**
 
@@ -106,8 +106,8 @@ cd frontend
 npx vitest run
 ```
 
-The tests cover the API module, stays (availability and pricing), checkout, ticket orders, events, status wording,
-the booking calendar, and the date picker and dropdown.
+The tests cover stays (availability and pricing), checkout (every kind of order and paying), the booking calendar
+and the dropdown.
 
 ## Folder guide
 

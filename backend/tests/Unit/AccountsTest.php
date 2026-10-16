@@ -11,7 +11,6 @@ use GrandGala\Services\Sessions;
 use GrandGala\Tests\Support\CreatesTestAccounts;
 use GrandGala\Tests\Support\DatabaseTestCase;
 use GrandGala\Utils\Db;
-use GrandGala\Utils\HttpError;
 
 class AccountsTest extends DatabaseTestCase
 {
