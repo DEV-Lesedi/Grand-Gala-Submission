@@ -1,0 +1,19 @@
+PHPUnit 11.5.57 by Sebastian Bergmann and contributors.
+
+Runtime:       PHP 8.5.11
+
+...............................................................  63 / 242 ( 26%)
+............................................................... 126 / 242 ( 52%)
+............................................................... 189 / 242 ( 78%)
+.....................................................           242 / 242 (100%)
+
+Time: 00:50.740, Memory: 16.00 MB
+
+OK (242 tests, 1670 assertions)
+PayFast notification from an unlisted address: 203.0.113.9
+PayFast notification refused: the signature does not match (check PAYFAST_PASSPHRASE)
+PayFast notification refused: the signature does not match (check PAYFAST_PASSPHRASE)
+PayFast notification refused: PayFast did not answer VALID
+PayFast notification from an unlisted address: 203.0.113.9
+PayFast notification refused: the signature does not match (check PAYFAST_PASSPHRASE)
+PayFast notification from an unlisted address: 203.0.113.9

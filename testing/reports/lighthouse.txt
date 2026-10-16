@@ -1,0 +1,5 @@
+Run 1: Performance 73, LCP 4378ms, CLS 0.000, TBT 0ms
+Run 2: Performance 68, LCP 4399ms, CLS 0.001, TBT 374ms
+Run 3: Performance 83, LCP 3952ms, CLS 0.002, TBT 46ms
+
+Saved: e2e/test-results/lighthouse/summary.json and run-1.html .. run-3.html

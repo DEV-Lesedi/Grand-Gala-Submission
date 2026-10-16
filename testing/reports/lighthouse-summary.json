@@ -1,0 +1,41 @@
+{
+  "url": "https://ggconnect.up.railway.app/",
+  "runs": [
+    {
+      "run": 1,
+      "performance": 73,
+      "accessibility": 95,
+      "bestPractices": 100,
+      "seo": 92,
+      "pwa": null,
+      "lcpMs": 4377.782999999999,
+      "clsScore": 0,
+      "tbtMs": 0,
+      "report": "e2e/test-results/lighthouse/run-1.html"
+    },
+    {
+      "run": 2,
+      "performance": 68,
+      "accessibility": 95,
+      "bestPractices": 100,
+      "seo": 92,
+      "pwa": null,
+      "lcpMs": 4399.332,
+      "clsScore": 0.001144878907620086,
+      "tbtMs": 373.64800000000014,
+      "report": "e2e/test-results/lighthouse/run-2.html"
+    },
+    {
+      "run": 3,
+      "performance": 83,
+      "accessibility": 95,
+      "bestPractices": 100,
+      "seo": 92,
+      "pwa": null,
+      "lcpMs": 3951.608,
+      "clsScore": 0.001836576580973888,
+      "tbtMs": 46,
+      "report": "e2e/test-results/lighthouse/run-3.html"
+    }
+  ]
+}
