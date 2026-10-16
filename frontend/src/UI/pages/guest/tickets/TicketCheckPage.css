@@ -1,0 +1,98 @@
+/* The page a ticket's QR code opens: one big card, readable at a glance on a phone at the gate */
+.ticket-check {
+  display: flex;
+  justify-content: center;
+  padding: 32px 16px 48px;
+}
+
+.ticket-check-card {
+  width: 100%;
+  max-width: 440px;
+  padding: 28px 24px;
+  border: 2px solid var(--border);
+  border-radius: var(--radius-medium);
+  background: var(--white);
+  box-shadow: var(--shadow-card);
+  text-align: center;
+}
+
+.ticket-check-card h1 {
+  margin: 12px 0 4px;
+  font-size: 26px;
+  color: var(--near-black);
+}
+
+/* The round tick, warning or cross at the top */
+.ticket-check-mark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--white);
+  background: var(--grey);
+}
+
+.ticket-check-card.is-success {
+  border-color: var(--success);
+}
+.ticket-check-card.is-success .ticket-check-mark {
+  background: var(--success);
+}
+
+.ticket-check-card.is-warning {
+  border-color: var(--warning);
+}
+.ticket-check-card.is-warning .ticket-check-mark {
+  background: var(--warning);
+}
+
+.ticket-check-card.is-danger {
+  border-color: var(--danger);
+}
+.ticket-check-card.is-danger .ticket-check-mark {
+  background: var(--danger);
+}
+
+.ticket-check-note {
+  margin: 0;
+  color: var(--text);
+  font-size: 14px;
+}
+
+.ticket-check-facts {
+  display: grid;
+  gap: 12px;
+  margin: 20px 0 0;
+  text-align: left;
+}
+
+.ticket-check-facts div {
+  padding: 10px 12px;
+  border-radius: var(--radius-small);
+  background: var(--cream-light);
+}
+
+.ticket-check-facts dt {
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.ticket-check-facts dd {
+  margin: 2px 0 0;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--near-black);
+}
+
+.ticket-check-code {
+  margin: 16px 0 0;
+  font-family: ui-monospace, monospace;
+  font-size: 13px;
+  color: var(--text-muted);
+}

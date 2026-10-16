@@ -1,0 +1,50 @@
+.rate-card-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* One button per rate */
+.rate-card-option {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--white);
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.rate-card-option:hover,
+.rate-card-option:focus-visible {
+  border-color: var(--green);
+  background: var(--green-pale);
+}
+
+.rate-card-name {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--near-black);
+}
+
+.rate-card-note {
+  display: block;
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+.rate-card-price {
+  flex-shrink: 0;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--near-black);
+}

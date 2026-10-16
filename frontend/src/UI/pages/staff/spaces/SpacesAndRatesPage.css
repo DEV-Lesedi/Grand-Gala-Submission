@@ -1,0 +1,132 @@
+.spaces-page {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Table and amenities on the left, editor on the right */
+
+.spaces-body {
+  display: grid;
+  grid-template-columns: 1fr 360px;
+  gap: 18px;
+  align-items: start;
+}
+
+.spaces-main {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  min-width: 0;
+}
+
+.spaces-table-card .table th,
+.spaces-table-card .table td {
+  padding-left: 10px;
+  padding-right: 10px;
+  font-size: 13px;
+}
+
+/* Photo + name in the first column */
+.spaces-name-cell {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  white-space: nowrap;
+}
+
+.spaces-name-cell img {
+  flex-shrink: 0;
+  width: 44px;
+  height: 34px;
+  border-radius: 6px;
+  object-fit: cover;
+}
+
+
+/* Dim the row; badge and switch stay clear */
+/* Fade the text, not the cell (keeps the row highlight) */
+.spaces-table-card .table tr.is-blacked-out td,
+.spaces-table-card .table tr.is-blacked-out .spaces-name-cell strong {
+  color: rgba(30, 28, 26, 0.38);
+}
+
+.spaces-table-card .table tr.is-blacked-out .spaces-use {
+  opacity: 0.5;
+}
+
+.spaces-table-card .table tr.is-blacked-out .spaces-name-cell img {
+  opacity: 0.5;
+  filter: grayscale(1);
+}
+
+.spaces-blackout-badge {
+  display: block;
+  width: fit-content;
+  margin-top: 3px;
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: var(--warning-light);
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  color: var(--warning);
+}
+
+/* Tiny grey "STAY · HIRE" chip */
+.spaces-use {
+  display: inline-block;
+  padding: 3px 7px;
+  border-radius: 5px;
+  background: var(--staff-sand);
+  font-size: 9.5px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  color: var(--staff-text-muted);
+}
+
+/* Only Current rate wraps */
+.spaces-table-card .table td:not(:nth-child(5)) {
+  white-space: nowrap;
+}
+
+.spaces-card-list,
+.spaces-mobile-add {
+  display: none;
+}
+
+/* Small laptop: one column */
+@media (max-width: 1279px) {
+  .spaces-body {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* iPad/phone: cards, then amenities */
+
+@media (max-width: 1023px) {
+  .spaces-table-card {
+    display: none;
+  }
+
+  .spaces-card-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .spaces-mobile-add {
+    display: block;
+    padding: 13px;
+  }
+}
+
+@media (max-width: 639px) {
+  .spaces-page {
+    gap: 16px;
+  }
+}

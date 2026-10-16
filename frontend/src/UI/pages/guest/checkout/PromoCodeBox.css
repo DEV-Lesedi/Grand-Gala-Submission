@@ -1,0 +1,80 @@
+.promo-code {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-top: 14px; /* the same gap as between the fields above */
+}
+
+.promo-code label {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+/* As wide as the form, so its edges line up with the fields above and the PayFast box below */
+.promo-code-row {
+  display: flex;
+  align-items: stretch;
+  gap: 12px;
+}
+
+.promo-code-row input {
+  flex: 1;
+  min-width: 0;
+  padding: 12px 14px;
+  border: 1px solid var(--border);
+  border-radius: 9px;
+  font-size: 14px;
+  color: var(--near-black);
+  text-transform: uppercase;
+}
+
+.promo-code-row input::placeholder {
+  text-transform: none;
+}
+
+.promo-code-row input:focus {
+  outline: none;
+  border-color: var(--green);
+}
+
+.promo-code-row input[aria-invalid='true'] {
+  border-color: var(--danger);
+}
+
+/* Apply: the same height and corners as the box beside it */
+.promo-code-row .btn {
+  flex-shrink: 0;
+  min-width: 110px;
+  padding-top: 0;
+  padding-bottom: 0;
+  border-radius: 9px;
+}
+
+/* Once a code is on: one green line with Remove */
+.promo-code.is-applied {
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 12px 14px;
+  border: 1px solid var(--success-border);
+  border-radius: 9px;
+  background: var(--success-palest);
+  font-size: 14px;
+  color: var(--success);
+}
+
+.promo-code-remove {
+  padding: 0;
+  border: 0;
+  background: none;
+  font: inherit;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--near-black);
+  text-decoration: underline;
+  cursor: pointer;
+}

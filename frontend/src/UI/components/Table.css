@@ -1,0 +1,52 @@
+.table-wrap {
+  overflow-x: auto;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-medium);
+  background: var(--white);
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.table th {
+  text-align: left;
+  padding: 12px 16px;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--text-muted);
+  border-bottom: 1px solid var(--border);
+}
+
+.table td {
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--border);
+  color: var(--near-black);
+}
+
+.table tr:last-child td {
+  border-bottom: none;
+}
+
+.table tr.is-clickable {
+  cursor: pointer;
+}
+
+.table tr.is-clickable:hover td {
+  background: var(--cream-light);
+}
+
+/* After :hover, so a selected row keeps its colour */
+.table tr.is-selected td,
+.table tr.is-selected:hover td {
+  background: var(--success-palest);
+}
+
+.table tr.is-clickable:focus-visible {
+  outline: 2px solid var(--green);
+  outline-offset: -2px;
+}

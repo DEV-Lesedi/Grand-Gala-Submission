@@ -1,0 +1,105 @@
+/* ---------- Desktop: one row per booking ---------- */
+
+.booking-row {
+  position: relative; /* lets the phone's stretched link cover the card */
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px;
+  border-radius: 14px;
+  box-shadow: none; /* flat card with a border */
+}
+
+.booking-row-thumb {
+  width: 104px;
+  height: 78px;
+  object-fit: cover;
+  border-radius: 10px;
+  flex-shrink: 0;
+}
+
+.booking-row-body {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+/* In a column, flex items stretch to full width by default; keep the chip as wide as its text */
+.booking-row-body .status-chip {
+  align-self: flex-start;
+}
+
+.booking-row-body h3 {
+  font-size: 15px;
+}
+
+.booking-row-link {
+  color: inherit;
+  text-decoration: none;
+}
+
+.booking-row-facts-phone {
+  display: none;
+}
+
+/* Price and button side by side */
+.booking-row-action {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.booking-row-price {
+  font-weight: 700;
+  color: var(--near-black);
+  margin: 0;
+}
+
+/* ---------- Phone: photo on top, the whole card is tappable ---------- */
+
+@media (max-width: 720px) {
+  .booking-row {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    padding: 0;
+    overflow: hidden; /* the photo follows the card's rounded corners */
+  }
+
+  .booking-row-thumb {
+    width: 100%;
+    height: 170px;
+    border-radius: 0;
+  }
+
+  .booking-row-body {
+    gap: 6px;
+    padding: 16px 20px 18px;
+  }
+
+  .booking-row-body h3 {
+    font-size: 17px;
+  }
+
+  /* The title's link covers the whole card, so a tap anywhere opens the booking */
+  .booking-row-link::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+  }
+
+  .booking-row-facts {
+    display: none;
+  }
+
+  .booking-row-facts-phone {
+    display: block;
+  }
+
+  /* Price moves into the facts line; the button is replaced by tapping the card */
+  .booking-row-action {
+    display: none;
+  }
+}

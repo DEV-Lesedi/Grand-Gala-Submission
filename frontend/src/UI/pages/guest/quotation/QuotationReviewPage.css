@@ -1,0 +1,255 @@
+.guest-quotation {
+  max-width: 1232px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.guest-quotation-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 20px 24px;
+  border-bottom: 1px solid var(--border);
+}
+
+.guest-quotation-crumb {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 6px;
+}
+
+.guest-quotation-crumb a {
+  text-decoration: none;
+}
+
+.guest-quotation-title {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+}
+
+.guest-quotation-title h1 {
+  font-size: 26px;
+  font-weight: 700;
+}
+
+.guest-quotation-issued {
+  font-size: 13px;
+  color: var(--text-muted);
+  margin-top: 4px;
+}
+
+/* Version pills: current one dark */
+.guest-quotation-versions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.guest-quotation-versions li {
+  padding: 8px 14px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-pill);
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+.guest-quotation-versions li.is-current {
+  background: var(--near-black);
+  border-color: var(--near-black);
+  color: var(--white);
+}
+
+/* Quote on the left, totals and choices on the right */
+.guest-quotation-body {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 340px;
+}
+
+.guest-quotation-main {
+  padding: 20px 24px 48px;
+}
+
+.guest-quotation-facts {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  margin: 0 0 16px;
+}
+
+.guest-quotation-facts div {
+  padding: 12px 14px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--cream-light);
+}
+
+.guest-quotation-facts dt {
+  font-size: 10.5px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.guest-quotation-facts dd {
+  margin: 4px 0 0;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--near-black);
+}
+
+.guest-quotation-lines {
+  width: 100%;
+  border-collapse: collapse;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+  background: var(--white);
+  font-size: 14px;
+}
+
+.guest-quotation-lines th {
+  padding: 10px 16px;
+  background: var(--cream-light);
+  font-size: 10.5px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  text-align: right;
+}
+
+.guest-quotation-lines td {
+  padding: 12px 16px;
+  border-top: 1px solid var(--border);
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+  color: var(--text-muted);
+}
+
+.guest-quotation-lines th:first-child,
+.guest-quotation-lines td:first-child {
+  text-align: left;
+}
+
+.guest-quotation-lines strong {
+  color: var(--near-black);
+  font-weight: 600;
+}
+
+.guest-quotation-lines td span {
+  display: block;
+  font-size: 12px;
+}
+
+.guest-quotation-text {
+  margin-top: 20px;
+}
+
+.guest-quotation-text h2 {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+
+.guest-quotation-text p {
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+.guest-quotation-side {
+  padding: 20px 24px;
+  background: var(--cream-light);
+  border-left: 1px solid var(--border);
+}
+
+.guest-quotation-totals {
+  margin: 0 0 16px;
+  padding: 4px 16px;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: var(--white);
+}
+
+.guest-quotation-totals div {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px 0;
+  font-size: 14px;
+}
+
+.guest-quotation-totals div + div {
+  border-top: 1px solid var(--border);
+}
+
+.guest-quotation-totals dd {
+  margin: 0;
+  font-weight: 600;
+  color: var(--near-black);
+}
+
+.guest-quotation-totals .is-total {
+  font-size: 19px;
+  font-weight: 700;
+  color: var(--near-black);
+}
+
+/* iPad and phone: the totals and choices go under the quote */
+@media (max-width: 1023px) {
+  .guest-quotation-body {
+    grid-template-columns: 1fr;
+  }
+
+  .guest-quotation-side {
+    border-left: none;
+    border-top: 1px solid var(--border);
+  }
+
+  .guest-quotation-facts {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Phone: header stacks; the table drops the Qty and Unit columns (the amount is what matters) */
+@media (max-width: 639px) {
+  .guest-quotation-header {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 16px;
+  }
+
+  .guest-quotation-main,
+  .guest-quotation-side {
+    padding: 16px;
+  }
+
+  .guest-quotation-lines th:nth-child(2),
+  .guest-quotation-lines th:nth-child(3),
+  .guest-quotation-lines td:nth-child(2),
+  .guest-quotation-lines td:nth-child(3) {
+    display: none;
+  }
+}
+
+/* Printing ("Download PDF"): just the quote and totals, no buttons */
+@media print {
+  .guest-quotation-body {
+    grid-template-columns: 1fr;
+  }
+
+  .quotation-decision {
+    display: none;
+  }
+}

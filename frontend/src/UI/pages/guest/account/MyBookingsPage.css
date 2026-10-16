@@ -1,0 +1,150 @@
+.my-bookings {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 32px 24px 64px;
+}
+
+.my-bookings-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.my-bookings-identity {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.my-bookings-avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--cream);
+  border: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+}
+
+.my-bookings-identity h1 {
+  font-size: 22px;
+}
+
+.my-bookings-identity p {
+  font-size: 14px;
+  color: var(--text-muted);
+  margin: 2px 0 0;
+}
+
+.my-bookings-tabs {
+  display: flex;
+  gap: 24px;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 20px;
+}
+
+.my-bookings-tab {
+  background: none;
+  border: none;
+  padding: 0 0 12px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-muted);
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+}
+
+.my-bookings-tab.is-active {
+  color: var(--near-black);
+  border-bottom-color: var(--near-black);
+}
+
+.my-bookings-tab-short {
+  display: none;
+}
+
+/* "My account" replaces the title only where the bottom tab bar (with Account) is shown */
+.my-bookings-title-phone {
+  display: none;
+}
+
+.tab-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* Phone: big title and avatar, tabs as pills. */
+
+@media (max-width: 720px) {
+  .my-bookings {
+    padding: 20px 16px 32px;
+  }
+
+  .my-bookings-header {
+    margin-bottom: 16px;
+  }
+
+  /* Avatar moves to the right of the title; the name line and New booking are desktop-only */
+  .my-bookings-identity {
+    flex: 1;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+  }
+
+  .my-bookings-identity h1 {
+    font-size: 26px;
+  }
+
+  .my-bookings-identity p,
+  .my-bookings-header > .btn {
+    display: none;
+  }
+
+  /* Tabs become pills that scroll sideways if they don't fit */
+  .my-bookings-tabs {
+    gap: 8px;
+    border-bottom: none;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+
+  .my-bookings-tab {
+    flex-shrink: 0;
+    padding: 9px 18px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-pill);
+    color: var(--near-black);
+  }
+
+  .my-bookings-tab.is-active {
+    background: var(--near-black);
+    border-color: var(--near-black);
+    color: var(--white);
+  }
+
+  .my-bookings-tab-label,
+  .my-bookings-tab.is-desktop-only {
+    display: none;
+  }
+
+  .my-bookings-tab-short {
+    display: inline;
+  }
+
+  .my-bookings-title-wide {
+    display: none;
+  }
+
+  .my-bookings-title-phone {
+    display: inline;
+  }
+
+  .my-bookings-tabs.is-account {
+    display: none;
+  }
+}

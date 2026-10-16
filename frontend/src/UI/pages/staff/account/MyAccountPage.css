@@ -1,0 +1,138 @@
+/* Header above the cards, same spacing as the other staff pages */
+.account-page {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Desktop: profile on the left, the two forms on the right */
+.account-body {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  gap: 18px;
+  align-items: start;
+}
+
+.account-profile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding: 24px;
+  text-align: center;
+}
+
+.account-avatar {
+  display: grid;
+  place-items: center;
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: var(--green);
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--white);
+}
+
+.account-name {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--near-black);
+}
+
+/* Email and phone, label above value */
+.account-facts {
+  width: 100%;
+  margin: 8px 0 0;
+  padding-top: 14px;
+  border-top: 1px solid var(--border);
+  text-align: left;
+}
+
+.account-facts dt {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.account-facts dd {
+  margin: 2px 0 12px;
+  font-size: 14px;
+  color: var(--near-black);
+  overflow-wrap: anywhere; /* long emails wrap instead of spilling out */
+}
+
+.account-since {
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+.account-team-link {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--green);
+  text-decoration: none;
+}
+
+.account-sign-out {
+  width: 100%;
+  margin-top: 6px;
+  color: var(--danger);
+}
+
+.account-forms {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.account-card {
+  padding: 22px;
+}
+
+.account-card-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--near-black);
+}
+
+/* The read-only email looks switched off */
+.account-card input[readonly] {
+  background: var(--cream);
+  color: var(--text-muted);
+}
+
+.account-note {
+  margin-top: -6px;
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+.account-saved {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--success);
+}
+
+.account-submit {
+  align-self: flex-start;
+}
+
+/* iPad and phone: everything in one column */
+@media (max-width: 1023px) {
+  .account-body {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 639px) {
+  .account-card .space-form-row {
+    grid-template-columns: 1fr;
+  }
+
+  .account-submit {
+    align-self: stretch;
+  }
+}

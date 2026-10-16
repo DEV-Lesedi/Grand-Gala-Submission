@@ -1,0 +1,41 @@
+.manage-section + .manage-section {
+  padding-top: 14px;
+  border-top: 1px solid var(--border);
+}
+
+.manage-heading {
+  margin-bottom: 8px;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--near-black);
+}
+
+/* Box on the left, its button on the right, lined up at the bottom */
+.manage-row {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 12px;
+  align-items: end;
+}
+
+.manage-row .btn {
+  height: 42px;
+}
+
+.manage-access {
+  align-items: center;
+  font-size: 14px;
+  color: var(--text);
+}
+
+.manage-done {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--success);
+}
+
+@media (max-width: 639px) {
+  .manage-row {
+    grid-template-columns: 1fr;
+  }
+}

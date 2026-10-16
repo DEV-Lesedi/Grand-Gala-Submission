@@ -1,0 +1,63 @@
+.event-card {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+  padding: 14px 16px;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.event-card-top {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.event-card-top img {
+  flex-shrink: 0;
+  width: 48px;
+  height: 40px;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+.event-card-text {
+  flex: 1;
+  min-width: 0;
+}
+
+.event-card-title {
+  display: block;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--staff-text);
+}
+
+.event-card-meta {
+  display: block;
+  font-size: 13px;
+  color: var(--staff-text-muted);
+}
+
+.event-card .status-chip {
+  flex-shrink: 0;
+  padding: 3px 8px;
+  font-size: 10px;
+}
+
+/* Bar, then "216 / 300" */
+.event-card-sold {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13px;
+  font-weight: 700;
+  white-space: nowrap;
+  color: var(--staff-text);
+}
+
+.event-card-sold .progress {
+  flex: 1;
+}

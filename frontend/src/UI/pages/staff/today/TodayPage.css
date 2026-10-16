@@ -1,0 +1,152 @@
+.today-page {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.today-page h2 {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--staff-text);
+}
+
+
+.today-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+}
+
+.staff-page .today-stat {
+  background: var(--staff-sand);
+  padding: 16px 18px;
+}
+
+.today-stat .kpi-label {
+  color: var(--staff-text-muted);
+}
+
+.today-stat .kpi-value {
+  font-size: 26px;
+  color: var(--staff-text);
+}
+
+
+.today-table-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 4px 12px;
+  padding: 16px 20px;
+  white-space: nowrap;
+}
+
+.today-table-summary {
+  font-size: 12px;
+  color: var(--staff-text-muted);
+}
+
+.today-table-link {
+  margin-left: auto;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--staff-green);
+  text-decoration: none;
+}
+
+.today-table-card .table th {
+  border-top: 1px solid var(--staff-border);
+}
+
+.today-table-card .table td {
+  padding-top: 16px;
+  padding-bottom: 16px;
+}
+
+.today-table-card .table th:first-child {
+  width: 124px; /* reference wraps like the design */
+}
+
+/* Names and dates are short: keep them on one line */
+.today-table-card .table td:nth-child(2),
+.today-table-card .table td:nth-child(4) {
+  white-space: nowrap;
+}
+
+/* iPad/phone card list, hidden on desktop */
+.today-booking-list {
+  display: none;
+}
+
+
+@media (max-width: 1023px) {
+  .today-table-card {
+    display: none;
+  }
+
+  .today-booking-list {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .today-booking-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 18px 20px;
+  }
+
+  .today-booking-title {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--staff-text);
+  }
+
+  .today-booking-details {
+    font-size: 14px;
+    color: var(--staff-text-muted);
+  }
+
+  .today-booking-card .status-chip {
+    flex-shrink: 0;
+  }
+}
+
+/* Phone: same layout, smaller */
+
+@media (max-width: 639px) {
+  .today-stats {
+    gap: 8px;
+  }
+
+  .staff-page .today-stat {
+    padding: 12px;
+  }
+
+  .today-stat .kpi-label {
+    font-size: 12px;
+  }
+
+  .today-stat .kpi-value {
+    font-size: 22px;
+  }
+
+  .today-booking-list {
+    gap: 12px;
+  }
+
+  .today-booking-card {
+    gap: 12px;
+    padding: 14px 16px;
+  }
+
+  .today-booking-title {
+    font-size: 14px;
+  }
+
+  .today-booking-details {
+    font-size: 13px;
+  }
+}

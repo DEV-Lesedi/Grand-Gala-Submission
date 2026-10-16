@@ -1,0 +1,103 @@
+.events-page {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.events-stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+/* Photo + title and space */
+.events-name-cell {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.events-name-cell img {
+  flex-shrink: 0;
+  width: 44px;
+  height: 34px;
+  border-radius: 6px;
+  object-fit: cover;
+}
+
+.events-space {
+  display: block;
+  font-size: 12px;
+  color: var(--staff-text-muted);
+}
+
+/* Table left, panel right */
+.events-body {
+  display: grid;
+  grid-template-columns: 1fr 330px;
+  gap: 18px;
+  align-items: start;
+}
+
+.events-sold {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 110px;
+}
+
+.events-table-card .table td {
+  font-size: 13px;
+}
+
+/* Small laptop: table full width, panel slides over */
+@media (max-width: 1279px) {
+  .events-body {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* iPad/phone only */
+.events-card-list,
+.events-mobile-add {
+  display: none;
+}
+
+
+@media (max-width: 1023px) {
+  .events-table-card {
+    display: none;
+  }
+
+  .events-body {
+    display: block;
+  }
+
+  .events-card-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .events-card-title {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--staff-text);
+  }
+
+  .events-mobile-add {
+    display: block;
+    padding: 13px;
+  }
+}
+
+@media (max-width: 639px) {
+  .events-stats {
+    gap: 10px;
+  }
+}
+
+/* No events left: the empty message shows instead */
+.events-body[hidden] {
+  display: none;
+}

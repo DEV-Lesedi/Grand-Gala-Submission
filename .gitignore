@@ -1,0 +1,23 @@
+# Secrets and machine-specific settings (copy the .env.example files instead)
+.env
+.env.testing
+.env.local
+*.local
+
+# Installed packages (composer install / npm install)
+backend/vendor/
+frontend/node_modules/
+
+# Build and test output
+frontend/dist/
+frontend/dev-dist/
+backend/.phpunit.cache/
+backend/.phpunit.result.cache
+backend/public/uploads/*
+!backend/public/uploads/.gitkeep
+
+# Editor and OS files
+.DS_Store
+.idea/
+.vscode/
+*.log

@@ -1,0 +1,139 @@
+.gallery {
+  max-width: 1232px;
+  margin: 0 auto;
+  padding: 32px 24px 64px;
+}
+
+.gallery-subtitle {
+  color: var(--text-muted);
+  margin: 4px 0 20px;
+}
+
+.gallery-filters {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.gallery-filters .filter-chip {
+  flex-shrink: 0;
+}
+
+/* Mosaic: 4 columns, equal-height rows, wide photos span 2. */
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: 190px;
+  grid-auto-flow: dense; /* after filtering, smaller photos fill any gaps a wide one leaves */
+  gap: 10px;
+}
+
+.gallery-item {
+  position: relative;
+  border-radius: 14px;
+  overflow: hidden;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+.gallery-item.is-wide {
+  grid-column: span 2;
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.gallery-item-caption {
+  position: absolute;
+  inset: auto 0 0 0;
+  padding: 12px;
+  text-align: left;
+  /* Dark fade behind the text so white captions stay readable on bright photos */
+  background: linear-gradient(180deg, rgba(22, 24, 28, 0) 0%, rgba(22, 24, 28, 0.45) 45%, rgba(22, 24, 28, 0.75) 100%);
+  color: var(--white);
+}
+
+.gallery-item-title {
+  font-size: 13px;
+  font-weight: 700;
+  margin: 0;
+}
+
+.gallery-item-title-short {
+  display: none;
+}
+
+.gallery-item-space {
+  font-size: 11px;
+  opacity: 0.8;
+  margin: 1px 0 0;
+}
+
+@media (max-width: 1000px) {
+  .gallery-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Phone: slim title bar, one row of chips, 2-column mosaic. */
+
+@media (max-width: 720px) {
+  .gallery {
+    padding: 0 16px 24px;
+  }
+
+  /* Negative side margins stretch the bar (and its line) to the screen edges */
+  .gallery-header {
+    margin: 0 -16px 16px;
+    padding: 16px 16px 14px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .gallery-header h1 {
+    font-size: 19px;
+  }
+
+  .gallery-subtitle {
+    display: none;
+  }
+
+  /* Chips stay on one line and scroll sideways, like My bookings */
+  .gallery-filters {
+    margin: 0 -16px 16px;
+    padding: 0 16px;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: 142px;
+    gap: 10px;
+  }
+
+  .gallery-item-caption {
+    padding: 12px 14px;
+  }
+
+  .gallery-item-title {
+    font-size: 15px;
+  }
+
+  .gallery-item-title-long {
+    display: none;
+  }
+
+  .gallery-item-title-short {
+    display: inline;
+  }
+
+  .gallery-item-space {
+    font-size: 14px;
+  }
+}

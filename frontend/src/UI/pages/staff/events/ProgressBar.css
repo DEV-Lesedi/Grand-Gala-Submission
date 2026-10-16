@@ -1,0 +1,18 @@
+.progress {
+  display: block;
+  height: 6px;
+  border-radius: 999px;
+  background: var(--staff-border);
+  overflow: hidden;
+}
+
+.progress-fill {
+  display: block;
+  height: 100%;
+  background: var(--staff-green);
+}
+
+/* Full: grey, like the SOLD OUT chip */
+.progress.is-full .progress-fill {
+  background: var(--grey);
+}

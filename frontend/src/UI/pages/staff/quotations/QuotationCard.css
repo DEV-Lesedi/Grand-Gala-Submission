@@ -1,0 +1,88 @@
+.quotation-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 16px 18px;
+  border: 1px solid var(--staff-border);
+  border-radius: var(--staff-radius);
+  background: var(--white);
+  color: var(--staff-text);
+  text-decoration: none;
+}
+
+.quotation-card:hover {
+  border-color: #cfc8bc;
+}
+
+.quotation-card-main {
+  min-width: 0;
+}
+
+.quotation-card-title {
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.quotation-card-summary {
+  font-size: 13px;
+  color: var(--staff-text-muted);
+}
+
+.quotation-card-status-line {
+  margin-top: 2px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+.quotation-card-status-line.is-warning {
+  color: var(--warning);
+}
+
+.quotation-card-status-line.is-success {
+  color: var(--staff-green);
+}
+
+.quotation-card-status-line.is-new {
+  color: var(--new); /* plum, like the ENQUIRY chip: new, waiting for staff */
+}
+
+.quotation-card-status-line.is-danger {
+  color: var(--danger);
+}
+
+.quotation-card-side {
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 6px;
+}
+
+.quotation-card-total {
+  font-size: 15px;
+  font-weight: 700;
+}
+
+@media (max-width: 639px) {
+  .quotation-card {
+    gap: 12px;
+    padding: 14px 16px;
+  }
+
+  .quotation-card-title,
+  .quotation-card-total {
+    font-size: 14px;
+  }
+
+  .quotation-card-summary {
+    font-size: 12px;
+  }
+
+  .quotation-card .status-chip {
+    padding: 3px 8px;
+    font-size: 10px;
+  }
+}

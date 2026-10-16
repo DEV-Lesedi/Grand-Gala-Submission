@@ -1,0 +1,138 @@
+.event-list {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+}
+
+.event-list-content {
+  max-width: 1232px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 24px 24px 0;
+}
+
+.event-list-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.event-list-crumb {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--text);
+  margin-bottom: 8px;
+}
+
+.event-list-header h1 {
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.event-list-subtitle,
+.event-list-count {
+  font-size: 14px;
+  color: var(--text-muted);
+  margin-top: 4px;
+}
+
+/* Phone only: the enquiry link in the top bar */
+.event-list-phone-link {
+  display: none;
+}
+
+.event-list-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px 24px;
+}
+
+.event-list-empty {
+  color: var(--text-muted);
+}
+
+/* Sticky sand band: stays on screen while scrolling, then settles at the page end. */
+.event-list-host {
+  position: sticky;
+  bottom: 0;
+  z-index: 5; /* above the cards scrolling under it */
+  margin-top: 64px;
+  background: var(--cream);
+  border-top: 1px solid var(--border);
+  box-shadow: 0 -6px 16px rgba(22, 24, 28, 0.06);
+}
+
+.event-list-host-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  max-width: 1232px;
+  margin: 0 auto;
+  padding: 16px 24px;
+}
+
+.event-list-host h2 {
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.event-list-host p {
+  font-size: 14px;
+  color: var(--text-muted);
+}
+
+.event-list-host .btn {
+  padding: 12px 24px;
+}
+
+/* iPad: two cards a row */
+@media (max-width: 1023px) {
+  .event-list-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Phone: own top bar. Crumb, subtitle, count and bottom band are desktop only. */
+@media (max-width: 720px) {
+  .event-list-content {
+    padding: 0 16px 24px;
+  }
+
+  .event-list-header {
+    align-items: center;
+    margin: 0 -16px 16px;
+    padding: 14px 16px;
+    border-bottom: 1px solid var(--border);
+    background: var(--white);
+  }
+
+  .event-list-header h1 {
+    font-size: 17px;
+  }
+
+  .event-list-crumb,
+  .event-list-subtitle,
+  .event-list-count,
+  .event-list-host {
+    display: none;
+  }
+
+  .event-list-phone-link {
+    display: inline;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--success);
+    text-decoration: none;
+  }
+
+  .event-list-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+}

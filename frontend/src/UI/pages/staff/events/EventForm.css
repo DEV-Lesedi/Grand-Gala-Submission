@@ -1,0 +1,90 @@
+/* Date · starts · ends on one line */
+.event-form-when {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 12px;
+}
+
+/* Hints under a field ("At least 12 days from today", the space's capacity): the label above is capitals, these aren't */
+.space-form-field .space-form-hint {
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+.event-form-tiers {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin: 0;
+  padding: 12px 14px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+}
+
+.event-form-tiers legend {
+  padding: 0 4px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+/* Name · price · tickets · × */
+.event-form-tier {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 28px;
+  gap: 8px;
+}
+
+.event-form-tier input {
+  height: 40px;
+  padding: 0 10px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  font-size: 14px;
+  color: var(--near-black);
+}
+
+.event-form-remove {
+  border: none;
+  background: none;
+  font-size: 18px;
+  color: var(--text-muted);
+  cursor: pointer;
+}
+
+.event-form-add {
+  align-self: flex-start;
+  font-size: 13px;
+}
+
+@media (max-width: 639px) {
+  .event-form-when {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .event-form-when .space-form-field:first-child {
+    grid-column: 1 / -1;
+  }
+}
+
+.space-form-field textarea {
+  padding: 10px 12px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  font: inherit;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0;
+  text-transform: none;
+  color: var(--near-black);
+  resize: vertical;
+}
+
+.space-form-field textarea:focus {
+  outline: 2px solid var(--green);
+  outline-offset: -1px;
+}

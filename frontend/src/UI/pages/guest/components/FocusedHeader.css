@@ -1,0 +1,47 @@
+/* Logo · title in the middle · a note on the right */
+.focused-header {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  padding: 18px 40px;
+  border-bottom: 1px solid var(--border);
+  background: var(--white);
+}
+
+.focused-header-logo {
+  font-size: 20px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--green);
+  text-decoration: none;
+}
+
+.focused-header-title {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--near-black);
+}
+
+.focused-header-note {
+  justify-self: end;
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+/* Phone: no title in the middle (each page has its own heading) */
+@media (max-width: 720px) {
+  .focused-header {
+    grid-template-columns: auto 1fr;
+    padding: 14px 16px;
+  }
+
+  .focused-header-title {
+    display: none;
+  }
+}
+
+@media print {
+  .focused-header {
+    display: none;
+  }
+}

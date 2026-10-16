@@ -1,0 +1,40 @@
+{
+    "name": "grand-gala/backend",
+    "description": "Grand Gala Gardens API. Plain PHP, no framework.",
+    "type": "project",
+    "license": "proprietary",
+    "require": {
+        "php": ">=8.4",
+        "endroid/qr-code": "^6.1",
+        "firebase/php-jwt": "^7.2",
+        "phpmailer/phpmailer": "^6.9",
+        "vlucas/phpdotenv": "^5.6"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^11.5"
+    },
+    "autoload": {
+        "psr-4": {
+            "GrandGala\\": ""
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "GrandGala\\Tests\\": "tests/"
+        }
+    },
+    "scripts": {
+        "test": "phpunit",
+        "test:unit": "phpunit --testsuite Unit",
+        "test:feature": "phpunit --testsuite Feature",
+        "test:seed": "phpunit --group seed",
+        "test:all": "phpunit --group default --group seed",
+        "serve": "php -d upload_max_filesize=50M -d post_max_size=55M -d display_errors=0 -S localhost:8000 -t public public/index.php"
+    },
+    "config": {
+        "platform": {
+            "php": "8.4"
+        },
+        "sort-packages": true
+    }
+}

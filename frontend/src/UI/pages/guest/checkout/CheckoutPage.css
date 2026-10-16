@@ -1,0 +1,212 @@
+/* A page of its own (no site header): white, full height */
+.checkout {
+  min-height: 100svh;
+  background: var(--white);
+}
+
+.checkout-problem {
+  max-width: 560px;
+  margin: 64px auto;
+  padding: 0 16px;
+}
+
+/* Form on the left, order on the right */
+.checkout-body {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 372px;
+  gap: 44px;
+  align-items: start;
+  max-width: 1232px;
+  margin: 0 auto;
+  padding: 28px 40px 64px;
+}
+
+.checkout-main h1 {
+  font-size: 26px;
+  font-weight: 700;
+}
+
+.checkout-notice {
+  margin: 20px 0;
+  padding: 14px 16px;
+  border: 1px solid var(--success-border);
+  border-radius: 12px;
+  background: var(--success-palest);
+  font-size: 14px;
+  color: var(--success);
+}
+
+.checkout-fields {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px 12px;
+}
+
+.checkout-fields.is-single {
+  grid-template-columns: 1fr;
+}
+
+.checkout-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.checkout-field label {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.checkout-optional {
+  text-transform: none;
+  letter-spacing: 0;
+  font-weight: 400;
+}
+
+.checkout-field input {
+  padding: 12px 14px;
+  border: 1px solid var(--border);
+  border-radius: 9px;
+  font-size: 14px;
+  color: var(--near-black);
+}
+
+.checkout-field input:focus {
+  outline: none;
+  border-color: var(--green);
+}
+
+.checkout-field [aria-invalid='true'] {
+  border-color: var(--danger);
+}
+
+.checkout-error {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--danger);
+}
+
+.checkout-pay-heading {
+  margin: 28px 0 10px;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+/* The one way to pay, already chosen: green border. */
+.checkout-payfast {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 14px 16px;
+  border: 2px solid var(--green);
+  border-radius: 12px;
+  background: var(--success-palest);
+  font-size: 14px;
+  color: var(--near-black);
+}
+
+.checkout-payfast span {
+  font-size: 12.5px;
+  color: var(--text-muted);
+}
+
+.checkout-pay {
+  margin-top: 20px;
+  min-width: 260px;
+  padding: 14px 32px;
+  font-size: 15px;
+}
+
+/* Phone only: the bar with the total and Pay */
+.checkout-bar {
+  display: none;
+}
+
+/* iPad: the order goes above the form */
+@media (max-width: 1023px) {
+  .checkout-body {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .checkout-body .checkout-side {
+    order: -1;
+  }
+}
+
+/* Phone: boxes stacked, smaller header; Pay moves to a bar stuck to the bottom */
+@media (max-width: 720px) {
+  .checkout-body {
+    padding: 16px 16px 120px; /* room for the bar */
+  }
+
+  .checkout-fields {
+    grid-template-columns: 1fr;
+  }
+
+  .checkout-payfast {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2px;
+  }
+
+  .checkout-pay {
+    display: none;
+  }
+
+  .checkout-bar {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 12px 16px calc(12px + env(safe-area-inset-bottom, 0px));
+    background: var(--white);
+    border-top: 1px solid var(--border);
+  }
+
+  .checkout-bar > span {
+    display: flex;
+    flex-direction: column;
+    font-size: 12px;
+    color: var(--text-muted);
+  }
+
+  .checkout-bar strong {
+    font-size: 17px;
+    color: var(--near-black);
+  }
+
+  .checkout-bar .btn {
+    padding: 12px 20px;
+  }
+}
+
+/* "Download receipt" prints the confirmation only */
+@media print {
+  .checkout-confirmed-actions {
+    display: none;
+  }
+}
+
+/* Stays and quotations are paid from the guest's account: who's booking, under the order card */
+.checkout-account {
+  margin: 12px 4px 0;
+  font-size: 14px;
+  color: var(--text);
+  overflow-wrap: anywhere; /* a long email stays inside the column */
+}
+
+/* The API's reason a payment couldn't start, above the Pay button */
+.checkout-pay-error {
+  display: block;
+  margin: 0 0 12px;
+}

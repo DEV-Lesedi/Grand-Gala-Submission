@@ -1,0 +1,70 @@
+.space-picker {
+  margin: 8px 0 16px;
+  padding: 0;
+  border: none;
+}
+
+.space-picker legend {
+  margin-bottom: 10px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--near-black);
+}
+
+.space-picker legend span {
+  margin-left: 8px;
+  font-weight: 400;
+  letter-spacing: 0;
+  text-transform: none;
+  color: var(--text-muted);
+}
+
+.space-picker-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+  gap: 12px;
+}
+
+.space-picker-card {
+  display: flex;
+  flex-direction: column;
+  padding: 0 0 12px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+  background: var(--white);
+  text-align: left;
+  cursor: pointer;
+}
+
+/* Ticked: a thicker green border (the padding shrinks by 1px so the card doesn't jump) */
+.space-picker-card[aria-pressed='true'] {
+  border: 2px solid var(--green);
+  padding-bottom: 11px;
+}
+
+.space-picker-card img {
+  width: 100%;
+  aspect-ratio: 16 / 8;
+  object-fit: cover;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.space-picker-name,
+.space-picker-meta {
+  padding: 0 12px;
+}
+
+.space-picker-name {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--near-black);
+}
+
+.space-picker-meta {
+  font-size: 12px;
+  color: var(--text-muted);
+}

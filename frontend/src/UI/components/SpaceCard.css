@@ -1,0 +1,113 @@
+.space-card {
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.space-card-media {
+  position: relative;
+  aspect-ratio: 4 / 3;
+}
+
+.space-card-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.space-card-badge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  padding: 4px 10px;
+  border-radius: var(--radius-pill);
+  background: var(--white);
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--near-black);
+}
+
+.space-card-fav {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(255, 255, 255, 0.9);
+  cursor: pointer;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.space-card-body {
+  padding: 14px 16px;
+}
+
+.space-card-title-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.space-card-title-row h3 {
+  font-size: 15px;
+}
+
+.space-card-rating {
+  font-size: 13px;
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+
+.space-card-subtitle {
+  font-size: 13px;
+  color: var(--text-muted);
+  margin: 4px 0 0;
+}
+
+.space-card-price {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--near-black);
+  margin: 8px 0 0;
+}
+
+/* As a link: no box, the photo carries the card and zooms a little on hover. */
+.space-card.is-link {
+  border: none;
+  background: none;
+  box-shadow: none;
+  border-radius: 0;
+  overflow: visible;
+  text-decoration: none;
+  color: inherit;
+}
+
+.space-card.is-link .space-card-media {
+  border-radius: 14px;
+  overflow: hidden;
+}
+
+.space-card.is-link .space-card-media img {
+  transition: transform 0.3s;
+}
+
+.space-card.is-link:hover .space-card-media img {
+  transform: scale(1.03);
+}
+
+.space-card.is-link .space-card-body {
+  padding: 10px 0 0;
+}
+
+.space-card.is-link:focus-visible {
+  outline: 2px solid var(--green);
+  outline-offset: 4px;
+  border-radius: 14px;
+}

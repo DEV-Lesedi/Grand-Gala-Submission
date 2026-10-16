@@ -1,0 +1,137 @@
+/* Shared by the "Add …" popups (site-wide colours) */
+
+.space-form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.space-form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.space-form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.space-form-field input,
+.space-form-field .select-trigger {
+  min-height: 0;
+  height: 42px;
+  padding: 0 12px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--white);
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0;
+  text-transform: none;
+  color: var(--near-black);
+}
+
+/* DatePicker inside a staff form: the same size as the other boxes */
+.space-form-field .date-picker-trigger {
+  height: 42px;
+  padding: 0 12px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.space-form-field input:focus,
+.space-form-field .select-trigger:focus {
+  outline: 2px solid var(--green);
+  outline-offset: -1px;
+}
+
+.space-form-optional {
+  font-weight: 500;
+  text-transform: none;
+  letter-spacing: 0;
+}
+
+.space-form-check {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+  color: var(--near-black);
+}
+
+.space-form-check input {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--green);
+}
+
+.space-form-note {
+  padding: 10px 12px;
+  border-radius: 8px;
+  background: var(--cream);
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--text);
+}
+
+/* Allowed, but worth a second look */
+.space-form-warning {
+  padding: 10px 12px;
+  border-radius: 8px;
+  background: var(--warning-pale);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--warning);
+}
+
+.space-form-error {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--danger);
+}
+
+@media (max-width: 639px) {
+  .space-form-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* A group of tick boxes with a small heading ("Also block") */
+.space-form-checks {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px 12px;
+  margin: 0;
+  padding: 12px 14px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+}
+
+.space-form-checks legend {
+  padding: 0 4px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.space-form-checks.is-row {
+  grid-template-columns: repeat(3, auto);
+  justify-content: start;
+  gap: 8px 20px;
+}
+
+@media (max-width: 639px) {
+  .space-form-checks {
+    grid-template-columns: 1fr;
+  }
+}

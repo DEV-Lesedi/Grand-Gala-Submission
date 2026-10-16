@@ -1,0 +1,178 @@
+.your-tickets {
+  max-width: 1032px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 24px 24px 64px;
+}
+
+.your-tickets-crumb {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 6px;
+}
+
+.your-tickets-crumb a {
+  text-decoration: none;
+}
+
+.your-tickets-title {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+}
+
+.your-tickets-title h1 {
+  font-size: 26px;
+  font-weight: 700;
+}
+
+.your-tickets-when {
+  margin: 4px 0 20px;
+  font-size: 14px;
+  color: var(--text-muted);
+}
+
+/* Tickets on the left, the receipt on the right */
+.your-tickets-body {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 320px;
+  gap: 32px;
+  align-items: start;
+}
+
+.your-tickets-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* One ticket: a photo stub and the ticket's details, with a dashed tear line between them */
+.your-ticket {
+  display: flex;
+  align-items: stretch;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  overflow: hidden;
+  background: var(--white);
+}
+
+.your-ticket img {
+  width: 120px;
+  object-fit: cover;
+  border-right: 2px dashed var(--border);
+}
+
+.your-ticket div {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 14px 18px;
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+.your-ticket strong {
+  font-size: 16px;
+  color: var(--near-black);
+}
+
+.your-ticket-number {
+  font-family: ui-monospace, 'SF Mono', Menlo, monospace;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--near-black);
+}
+
+/* Not paid or refunded: shown faded, so nobody mistakes it for a valid ticket */
+.your-ticket.is-void {
+  opacity: 0.5;
+}
+
+.your-tickets-note {
+  margin-top: 12px;
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+.your-tickets-side {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 20px;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  background: var(--white);
+  box-shadow: var(--shadow-card);
+}
+
+.your-tickets-side dl {
+  margin: 0;
+}
+
+.your-tickets-side dl div {
+  display: flex;
+  justify-content: space-between;
+  padding: 6px 0;
+  font-size: 14px;
+}
+
+.your-tickets-side dd {
+  margin: 0;
+  color: var(--near-black);
+}
+
+.your-tickets-side .is-total {
+  margin-top: 6px;
+  padding-top: 12px;
+  border-top: 1px solid var(--border);
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--near-black);
+}
+
+.your-tickets-paid {
+  padding: 10px 12px;
+  border-radius: 10px;
+  background: var(--success-pale);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--success);
+}
+
+.your-tickets-side .btn {
+  width: 100%;
+}
+
+@media (max-width: 1023px) {
+  .your-tickets-body {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 720px) {
+  .your-tickets {
+    padding: 16px 16px 40px;
+  }
+
+  .your-tickets-title h1 {
+    font-size: 22px;
+  }
+
+  .your-ticket img {
+    width: 84px;
+  }
+}
+
+@media print {
+  .your-tickets-side .btn {
+    display: none;
+  }
+}

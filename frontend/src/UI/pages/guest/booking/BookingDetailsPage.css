@@ -1,0 +1,212 @@
+.booking-details {
+  max-width: 1032px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 24px 24px 64px;
+}
+
+.booking-details-crumb {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 6px;
+}
+
+.booking-details-crumb a {
+  text-decoration: none;
+}
+
+.booking-details-title {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.booking-details-title h1 {
+  font-size: 26px;
+  font-weight: 700;
+}
+
+/* What was booked on the left, the receipt on the right */
+.booking-details-body {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 340px;
+  gap: 32px;
+  align-items: start;
+}
+
+.booking-details-main img {
+  width: 100%;
+  aspect-ratio: 16 / 7;
+  object-fit: cover;
+  border-radius: 16px;
+  display: block;
+}
+
+.booking-details-facts {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin: 16px 0 0;
+}
+
+.booking-details-facts div {
+  padding: 12px 14px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--cream-light);
+}
+
+.booking-details-facts dt {
+  font-size: 10.5px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.booking-details-facts dd {
+  margin: 4px 0 0;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--near-black);
+}
+
+.booking-details-side {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 20px;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  background: var(--white);
+  box-shadow: var(--shadow-card);
+}
+
+.booking-details-lines {
+  margin: 0 0 4px;
+}
+
+.booking-details-lines div {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 6px 0;
+  font-size: 14px;
+}
+
+.booking-details-lines dd {
+  margin: 0;
+  color: var(--near-black);
+}
+
+.booking-details-lines .is-total {
+  margin-top: 6px;
+  padding-top: 12px;
+  border-top: 1px solid var(--border);
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--near-black);
+}
+
+.booking-details-payment {
+  padding: 10px 12px;
+  border-radius: 10px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.booking-details-payment.is-success {
+  background: var(--success-pale);
+  color: var(--success);
+}
+
+.booking-details-payment.is-warning {
+  background: var(--warning-pale);
+  color: var(--warning);
+}
+
+.booking-details-payment.is-muted {
+  background: var(--grey-pale);
+  color: var(--grey);
+}
+
+.booking-details-side .btn {
+  width: 100%;
+}
+
+/* The enquiry form as the guest sent it, under the booking facts */
+.booking-details-enquiry {
+  margin-top: 28px;
+}
+
+.booking-details-enquiry h2 {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--near-black);
+}
+
+.booking-details-enquiry h3 {
+  margin: 20px 0 8px;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--near-black);
+}
+
+.booking-details-enquiry-sent {
+  margin-top: 4px;
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+.booking-details-enquiry-note {
+  margin: 0;
+  padding: 12px 14px;
+  border-left: 3px solid var(--border);
+  background: var(--cream-light);
+  border-radius: 0 12px 12px 0;
+  font-size: 14px;
+  color: var(--near-black);
+  white-space: pre-wrap;
+}
+
+.booking-details-enquiry-changes {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* iPad and phone: the receipt goes under */
+@media (max-width: 1023px) {
+  .booking-details-body {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 720px) {
+  .booking-details {
+    padding: 16px 16px 40px;
+  }
+
+  .booking-details-title h1 {
+    font-size: 22px;
+  }
+
+  .booking-details-facts {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* "Download receipt": print without the buttons */
+@media print {
+  .booking-details-side .btn {
+    display: none;
+  }
+}

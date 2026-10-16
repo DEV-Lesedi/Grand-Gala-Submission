@@ -1,0 +1,178 @@
+/* White page background. */
+.guest-layout {
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  background: var(--white);
+}
+
+.guest-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  padding: 16px 32px;
+  background: var(--white);
+  border-bottom: 1px solid var(--border);
+}
+
+.guest-logo {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--near-black);
+  text-decoration: none;
+}
+
+.guest-logo span {
+  color: var(--green);
+}
+
+.guest-nav {
+  display: flex;
+  gap: 24px;
+  flex: 1;
+}
+
+.guest-nav-link {
+  position: relative;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-decoration: none;
+}
+
+.guest-nav-link.is-active {
+  color: var(--near-black);
+}
+
+/* Underline outside the box keeps text level with the logo */
+.guest-nav-link.is-active::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -6px;
+  height: 2px;
+  background: var(--green);
+}
+
+.guest-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.guest-my-bookings {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--near-black);
+  text-decoration: none;
+}
+
+.guest-my-bookings.is-active {
+  color: var(--green);
+}
+
+.guest-account-pill {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 8px 6px 16px;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--border);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--near-black);
+  text-decoration: none;
+}
+
+.guest-avatar {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--cream);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.guest-avatar.is-signed-in {
+  background: var(--green);
+  color: var(--white);
+}
+
+.guest-main {
+  flex: 1;
+}
+
+.guest-footer {
+  padding: 24px 32px;
+  border-top: 1px solid var(--border);
+  background: var(--white);
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+.guest-tab-bar {
+  display: none;
+}
+
+/* ---------- Phone: no header, bottom tab bar ---------- */
+
+@media (max-width: 720px) {
+  .guest-header,
+  .guest-footer {
+    display: none;
+  }
+
+  /* Five equal columns: every tab gets the same width, so Gallery sits exactly in the middle */
+  .guest-tab-bar {
+    position: sticky;
+    bottom: 0;
+    z-index: 20;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    background: var(--white);
+    border-top: 1px solid var(--border);
+    padding: 4px 4px env(safe-area-inset-bottom, 0px);
+  }
+
+  /* The whole column is the button: 44px tall for a thumb, label centred, dot under it */
+  .guest-tab-link {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 44px;
+    padding-bottom: 6px; /* room for the dot */
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text-muted);
+    text-align: center;
+    white-space: nowrap;
+    text-decoration: none;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  /* Current tab: bold, with a green dot */
+  .guest-tab-link.is-active {
+    color: var(--near-black);
+    font-weight: 700;
+  }
+
+  .guest-tab-link.is-active::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: 6px;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: var(--green);
+    transform: translateX(-50%);
+  }
+}

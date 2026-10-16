@@ -1,0 +1,37 @@
+/* Same spacing as the quotation list next to it */
+.needs-quotation-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* One line, so cards stay the same height */
+.needs-quotation-detail {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Pale plum: needs action, not a warning */
+.quotation-card.needs-quotation-card {
+  border-color: var(--new-border-light);
+  background: var(--new-palest);
+}
+
+.quotation-card.needs-quotation-card:hover {
+  border-color: var(--new-border);
+}
+
+.needs-quotation-card .btn {
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+
+.needs-quotation-empty {
+  padding: 12px 0;
+  font-size: 13px;
+  color: var(--staff-text-muted);
+}

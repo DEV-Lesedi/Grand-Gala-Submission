@@ -1,0 +1,194 @@
+:root {
+  /* Brand green, darkest to palest */
+  --green-darkest: #1f3f2c;
+  --green: #2d5a3d;
+  --green-light: #3a6d4b;
+  --green-pale: #eef3ee;
+
+  /* Page backgrounds */
+  --cream: #f7f5f0;
+  --cream-light: #fbfaf7;
+
+  /* Text and lines */
+  --near-black: #16181c;
+  --text: #4a4f57;
+  --text-muted: #7a7f88;
+  --border: #e6e4de;
+  --white: #ffffff;
+
+  /* Status colours. The plain name is for text; then from darkest to lightest:
+     -border (outlines), -light (badges), -pale (chips and messages), -palest (soft background wash) */
+  --success: #1f5a3d;
+  --success-pale: #e7f0e9;
+  --success-palest: #f4f7f5;
+  --success-border: #cfe0d5;
+
+  --warning: #b4531b;
+  --warning-pale: #fdf0e2;
+  --warning-palest: #fdf6ee;
+  --warning-border: #f1d6bd;
+  --warning-light: #fbe3cc;
+
+  --danger: #b42318;
+  --danger-pale: #fdecea;
+
+  --new: #5b4b86;
+  --new-pale: #eee9f5;
+  --new-palest: #f8f6fc;
+  --new-border: #b9aad6;
+  --new-border-light: #d9d0ea;
+
+  /* Neutral grey status (e.g. cancelled, expired) */
+  --grey: #6e6a66;
+  --grey-pale: #f1eee9;
+
+  /* Rounded corners */
+  --radius-small: 8px;
+  --radius-medium: 12px;
+  --radius-pill: 999px;
+
+  --shadow-card: 0 1px 2px rgba(22, 24, 28, 0.06), 0 8px 24px rgba(22, 24, 28, 0.06);
+
+  /* One font (loaded in index.html) */
+  --font: 'Plus Jakarta Sans', system-ui, 'Segoe UI', Roboto, sans-serif;
+
+  font: 16px/150% var(--font);
+  color-scheme: light;
+  color: var(--text);
+  background: var(--cream);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+#root {
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font);
+  font-weight: 600;
+  color: var(--near-black);
+  margin: 0;
+}
+
+p {
+  margin: 0;
+}
+
+a {
+  color: inherit;
+}
+
+/* Form controls use the app font */
+button,
+input,
+select,
+textarea {
+  font-family: inherit;
+}
+
+/* A button that looks like a link. Components set the size */
+.link-button {
+  padding: 0;
+  border: none;
+  background: none;
+  font: inherit;
+  font-weight: 600;
+  color: var(--success);
+  cursor: pointer;
+}
+
+/* A page couldn't load its data from the API (shown in place of the list) */
+.page-problem {
+  margin: 12px 0;
+  padding: 10px 12px;
+  border-radius: var(--radius-small);
+  background: var(--danger-pale);
+  color: var(--danger);
+  font-size: 13px;
+}
+
+/* A page is waiting for the API */
+.page-loading {
+  margin: 24px 0;
+  color: var(--text-muted);
+  font-size: 14px;
+}
+
+/* ---------- Motion: page changes, content arriving, refreshing ---------- */
+
+/* A new page fades in and rises a little. "backwards" only: once it ends the page has no transform
+   left, so position: fixed parts inside it (drawers, sticky bars) aren't thrown off. */
+.page-enter {
+  animation: page-enter 220ms ease-out backwards;
+}
+
+@keyframes page-enter {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+}
+
+/* Content that has just loaded (Loaded, lists) fades in where its skeleton was */
+.fade-in {
+  animation: fade-in 200ms ease-out backwards;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+}
+
+/* Old results stay on screen, dimmed, while new ones load (e.g. new dates on Browse stays) */
+.is-refreshing {
+  opacity: 0.55;
+  transition: opacity 150ms ease-out;
+  pointer-events: none;
+}
+
+/* Anyone who asked their device for less motion gets none */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 1ms !important;
+    animation-delay: 0ms !important;
+    transition-duration: 1ms !important;
+  }
+}
+
+/* Photos fade in once loaded (main.jsx marks them is-loaded). Only with that script running,
+   so a page without it still shows its photos. */
+.fade-images img {
+  opacity: 0;
+  transition: opacity 250ms ease-out;
+}
+
+.fade-images img.is-loaded {
+  opacity: 1;
+}
+
+/* Phones: iPhone Safari zooms into any text box whose text is under 16px when it's tapped, and the
+   page stays zoomed. 16px stops that without turning off pinch-zoom. !important because many forms
+   set their own (smaller) size with more specific rules. Buttons (our dropdowns, date pickers) don't zoom. */
+@media (max-width: 1024px) {
+  input:not([type='checkbox']):not([type='radio']),
+  textarea,
+  select {
+    font-size: 16px !important;
+  }
+}

@@ -1,0 +1,268 @@
+/* Desktop: photo on the left, form card on the right. */
+
+.auth-screen {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: calc(100svh - 73px); /* fill the screen under the site header */
+}
+
+.auth-photo {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  background: url('/photos/dining.jpg') center / cover no-repeat;
+}
+
+/* Dims the photo a little, and more at the bottom, so the white text is readable */
+.auth-photo::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(22, 24, 28, 0.2) 0%, rgba(22, 24, 28, 0.25) 50%, rgba(22, 24, 28, 0.65) 100%);
+}
+
+.auth-photo-text {
+  position: relative; /* above the dimming layer */
+  padding: 44px;
+  color: var(--white);
+}
+
+/* Round back button, top-left of the photo (phone only) */
+.auth-back {
+  display: none;
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  z-index: 1; /* above the dimming layer */
+  width: 40px;
+  height: 40px;
+  border: none;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.92);
+  color: var(--near-black);
+  font-size: 20px;
+  line-height: 1;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(22, 24, 28, 0.15);
+}
+
+.auth-brand {
+  display: none; /* phone only */
+  font-size: 18px;
+  font-weight: 800;
+}
+
+.auth-headline {
+  max-width: 440px;
+  font-size: 32px;
+  font-style: italic;
+  font-weight: 500;
+  line-height: 1.25;
+}
+
+.auth-photo-sub {
+  margin-top: 12px;
+  font-size: 15px;
+  opacity: 0.85;
+}
+
+.auth-side {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 32px;
+  background: var(--cream);
+}
+
+.auth-card {
+  width: 100%;
+  max-width: 420px;
+  padding: 24px;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  background: var(--white);
+  box-shadow: 0 12px 34px rgba(30, 28, 26, 0.08);
+}
+
+.auth-title {
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.auth-subtitle {
+  margin-top: 4px;
+  font-size: 14px;
+  color: var(--text-muted);
+}
+
+/* ---------- The form inside the card ---------- */
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 12px;
+}
+
+.auth-field .field-label {
+  font-size: 12px;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.auth-field input {
+  width: 100%;
+  height: 48px;
+  padding: 0 14px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  font-size: 14px;
+  color: var(--near-black);
+}
+
+.auth-field input:focus {
+  outline: 2px solid var(--green);
+  outline-offset: -1px;
+}
+
+.auth-forgot {
+  align-self: flex-start;
+  margin-top: -4px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--green);
+  text-decoration: none;
+}
+
+.auth-submit,
+.auth-guest {
+  width: 100%;
+  height: 50px;
+  font-size: 14px;
+}
+
+.auth-divider {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+.auth-divider::before,
+.auth-divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--border);
+}
+
+.auth-footer {
+  text-align: center;
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+.auth-footer a {
+  font-weight: 700;
+  color: var(--green);
+  text-decoration: none;
+}
+
+/* ---------- iPad: rounded photo banner on top, card centred below ---------- */
+
+@media (max-width: 1023px) {
+  .auth-screen {
+    display: block;
+    padding: 28px;
+    background: var(--cream);
+  }
+
+  .auth-photo {
+    height: 300px;
+    border-radius: 14px;
+    overflow: hidden;
+  }
+
+  .auth-photo-text {
+    padding: 24px 26px;
+  }
+
+  .auth-headline {
+    max-width: none;
+    font-size: 22px;
+  }
+
+  .auth-photo-sub {
+    display: none;
+  }
+
+  .auth-side {
+    padding: 24px 0 0;
+    background: none;
+  }
+}
+
+/* ---------- Phone: photo edge to edge with the logo, plain form below ---------- */
+
+@media (max-width: 720px) {
+  .auth-screen {
+    padding: 0;
+    background: var(--white);
+  }
+
+  .auth-photo {
+    height: 270px;
+    border-radius: 0;
+  }
+
+  .auth-photo-text {
+    padding: 20px;
+  }
+
+  .auth-brand,
+  .auth-back {
+    display: block;
+  }
+
+  .auth-headline {
+    font-size: 20px;
+  }
+
+  .auth-side {
+    padding: 22px 20px 32px;
+  }
+
+  /* No card box on phone: the form sits straight on the page */
+  .auth-card {
+    max-width: none;
+    padding: 0;
+    border: none;
+    box-shadow: none;
+  }
+
+  .auth-title {
+    font-size: 24px;
+  }
+
+  .auth-subtitle {
+    display: none;
+  }
+}
+
+/* Forgot / reset password: a line of plain text, and the API's error under the form */
+.auth-message {
+  margin: 12px 0;
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--text);
+}
+
+.auth-error {
+  margin: 0;
+  padding: 10px 12px;
+  border-radius: var(--radius-small);
+  background: var(--danger-pale);
+  color: var(--danger);
+  font-size: 13px;
+}

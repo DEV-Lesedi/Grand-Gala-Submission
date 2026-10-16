@@ -1,0 +1,49 @@
+.stay-steps {
+  border-bottom: 1px solid var(--border);
+  background: var(--cream-light);
+}
+
+.stay-steps ol {
+  display: flex;
+  justify-content: center;
+  gap: 28px;
+  margin: 0;
+  padding: 12px 16px;
+  list-style: none;
+}
+
+.stay-steps li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+.stay-steps-number {
+  display: grid;
+  place-items: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: var(--grey-pale);
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--text-muted);
+}
+
+/* Done: green tick · current: dark */
+.stay-steps li.is-done .stay-steps-number {
+  background: var(--green);
+  color: var(--white);
+}
+
+.stay-steps li.is-current {
+  font-weight: 600;
+  color: var(--near-black);
+}
+
+.stay-steps li.is-current .stay-steps-number {
+  background: var(--near-black);
+  color: var(--white);
+}

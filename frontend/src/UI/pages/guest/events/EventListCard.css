@@ -1,0 +1,150 @@
+.event-list-card {
+  display: flex;
+  flex-direction: column;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  overflow: hidden;
+}
+
+/* Sold out: the photo fades. */
+.event-list-card.is-sold-out .event-list-card-photo img {
+  opacity: 0.55;
+}
+
+/* The photo across the top */
+.event-list-card-photo {
+  position: relative;
+  aspect-ratio: 2.4 / 1;
+  background: var(--cream);
+}
+
+/* Pinned inside the strip: without this, a tall photo stretches the strip to its own height */
+.event-list-card-photo img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* The white date block, top left: "14 / SEP" */
+.event-list-card-date {
+  position: absolute;
+  left: 10px;
+  top: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 44px;
+  padding: 6px 8px 5px;
+  border-radius: 10px;
+  background: var(--white);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+  line-height: 1.2;
+}
+
+.event-list-card-date strong {
+  font-size: 20px;
+  font-weight: 800;
+  color: var(--near-black);
+  letter-spacing: 0;
+}
+
+.event-list-card-status {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+}
+
+.event-list-card-body {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 14px 16px 12px;
+}
+
+.event-list-card-title {
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.event-list-card-meta {
+  font-size: 13.5px;
+  line-height: 1.45;
+  color: var(--text-muted);
+}
+
+/* Price above a full-width button, at the bottom of the card so buttons line up across a row */
+.event-list-card-footer {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: auto;
+  padding-top: 14px;
+}
+
+.event-list-card-price {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--near-black);
+}
+
+/* A fixed height: the Sold out <button> and the <a> links otherwise differ by a few pixels */
+.event-list-card-button {
+  width: 100%;
+  height: 46px;
+}
+
+/* Sold out: a flat grey button */
+.event-list-card .event-list-card-button:disabled {
+  opacity: 1;
+  background: var(--grey-pale);
+  border-color: var(--border);
+  color: var(--text-muted);
+}
+
+/* Desktop shows the two-line version and long button label; phone the short ones */
+.event-list-card .is-phone {
+  display: none;
+}
+
+/* Phone (the width where the guest layout switches to the tab bar) */
+@media (max-width: 720px) {
+  .event-list-card .is-desktop {
+    display: none;
+  }
+
+  .event-list-card .is-phone {
+    display: inline;
+  }
+
+  .event-list-card p.is-phone {
+    display: block;
+  }
+
+  .event-list-card-photo {
+    aspect-ratio: 2.2 / 1;
+  }
+
+  .event-list-card-body {
+    padding: 14px 14px 14px;
+  }
+
+  /* Price on the left, a small button on the right */
+  .event-list-card-footer {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .event-list-card-button {
+    width: auto;
+    height: 42px;
+    padding: 0 18px;
+  }
+}

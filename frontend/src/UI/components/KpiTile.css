@@ -1,0 +1,25 @@
+.kpi-tile {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.kpi-label {
+  font-size: 13px;
+  color: var(--text-muted);
+  margin: 0;
+}
+
+.kpi-value {
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--near-black);
+  margin: 0;
+}
+
+.kpi-hint {
+  font-size: 12px;
+  color: var(--text-muted);
+  margin: 0;
+}

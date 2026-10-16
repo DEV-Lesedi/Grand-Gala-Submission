@@ -1,0 +1,147 @@
+.promotions-card {
+  padding: 0;
+  overflow: hidden;
+}
+
+.promotions-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 14px 18px;
+  border-bottom: 1px solid var(--staff-border);
+}
+
+.promotions-header h2 {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--staff-text);
+}
+
+.promotions-add {
+  font-size: 13px;
+}
+
+.promotions-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* [code + description / rules]   STATUS   (switch) */
+.promotion {
+  display: grid;
+  grid-template-columns: 1fr auto auto auto;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 18px;
+}
+
+.promotion + .promotion {
+  border-top: 1px solid var(--staff-border);
+}
+
+.promotion-text {
+  min-width: 0;
+}
+
+.promotion-title {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px 10px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--staff-text);
+}
+
+/* The code looks like something you'd type */
+.promotion-code {
+  padding: 2px 8px;
+  border: 1px dashed var(--new-border);
+  border-radius: 6px;
+  background: var(--new-palest);
+  font-family: ui-monospace, 'SF Mono', Menlo, monospace;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: var(--new);
+}
+
+.promotion-rules {
+  margin-top: 4px;
+  font-size: 12.5px;
+  color: var(--staff-text-muted);
+}
+
+.promotion-rules strong {
+  color: var(--staff-text);
+}
+
+.promotion-edit {
+  font-size: 13px;
+}
+
+.promotion-status {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.promotion-status.is-success {
+  color: var(--staff-green);
+}
+
+.promotion-status.is-warning {
+  color: var(--warning);
+}
+
+.promotion-status.is-muted {
+  color: var(--staff-text-muted);
+}
+
+/* Faded when not live */
+.promotion.is-faded .promotion-text {
+  opacity: 0.55;
+}
+
+.promotions-empty {
+  padding: 16px 18px;
+  font-size: 13px;
+  color: var(--staff-text-muted);
+}
+
+/* Phone: status under the text */
+@media (max-width: 639px) {
+  .promotion {
+    grid-template-columns: 1fr auto;
+    grid-template-areas:
+      'text toggle'
+      'status edit';
+    gap: 4px 12px;
+    padding: 14px 16px;
+  }
+
+  .promotion-text {
+    grid-area: text;
+  }
+
+  .promotion-edit {
+  font-size: 13px;
+}
+
+.promotion-status {
+    grid-area: status;
+  }
+
+  .promotion .toggle {
+    grid-area: toggle;
+  }
+
+  .promotion-edit {
+    grid-area: edit;
+    justify-self: end;
+  }
+}

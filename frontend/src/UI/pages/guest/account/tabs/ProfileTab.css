@@ -1,0 +1,164 @@
+/* Desktop: details and password side by side. Phones: one under the other (see the bottom) */
+.profile-cards {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+  align-items: stretch; /* both cards as tall as the taller one */
+}
+
+.profile-card {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+}
+
+.profile-card-head {
+  margin-bottom: 20px;
+}
+
+.profile-card-head h2 {
+  margin: 0;
+  font-size: 17px;
+  color: var(--near-black);
+}
+
+.profile-card-head p {
+  margin: 4px 0 0;
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+.profile-field {
+  margin-bottom: 16px;
+}
+
+.profile-field input {
+  width: 100%;
+  padding: 11px 12px;
+  border-radius: var(--radius-small);
+  border: 1px solid var(--border);
+  background: var(--white);
+  color: var(--near-black);
+  font: inherit;
+  font-size: 14px;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+.profile-field input:hover {
+  border-color: var(--text-muted);
+}
+
+.profile-field input:focus {
+  outline: none;
+  border-color: var(--green);
+  box-shadow: 0 0 0 3px var(--green-pale);
+}
+
+/* The browser's autofill paints saved fields blue: keep them white like the rest */
+.profile-field input:-webkit-autofill {
+  -webkit-text-fill-color: var(--near-black);
+  box-shadow: 0 0 0 1000px var(--white) inset;
+}
+
+.profile-optional {
+  margin-left: 4px;
+  font-weight: 500;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+.profile-hint {
+  margin: 6px 0 0;
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+.profile-show {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 16px;
+  font-size: 13px;
+  color: var(--text);
+  cursor: pointer;
+}
+
+.profile-show input {
+  accent-color: var(--green);
+}
+
+/* margin-top: auto lines both cards' buttons up; the message sits above the button. */
+.profile-card-foot {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: auto;
+  padding-top: 20px;
+  border-top: 1px solid var(--border);
+}
+
+.profile-card-foot .btn {
+  align-self: flex-start;
+}
+
+.profile-saved {
+  margin: 0;
+  padding: 10px 12px;
+  border-radius: var(--radius-small);
+  background: var(--success-pale);
+  color: var(--success);
+  font-size: 13px;
+}
+
+.profile-error {
+  margin: 0;
+  padding: 10px 12px;
+  border-radius: var(--radius-small);
+  background: var(--danger-pale);
+  color: var(--danger);
+  font-size: 13px;
+}
+
+/* "Signed in as …" and Sign out, under both cards */
+.profile-sign-out {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-top: 20px;
+  padding: 16px 24px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-medium);
+  background: var(--cream-light);
+}
+
+.profile-sign-out p {
+  margin: 0;
+  font-size: 14px;
+  color: var(--text);
+  overflow-wrap: anywhere;
+}
+
+.profile-sign-out strong {
+  color: var(--near-black);
+}
+
+@media (max-width: 720px) {
+  .profile-cards {
+    grid-template-columns: 1fr;
+  }
+
+  .profile-card {
+    padding: 20px;
+  }
+
+  .profile-card-foot .btn {
+    align-self: stretch;
+  }
+
+  .profile-sign-out {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 16px 20px;
+  }
+}

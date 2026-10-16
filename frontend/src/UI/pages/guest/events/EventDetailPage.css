@@ -1,0 +1,259 @@
+.event-detail {
+  max-width: 1232px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 20px 24px 64px;
+}
+
+.event-detail-back {
+  display: inline-block;
+  font-size: 13px;
+  color: var(--text-muted);
+  text-decoration: none;
+  margin-bottom: 12px;
+}
+
+.event-detail-back:hover {
+  color: var(--near-black);
+}
+
+/* Intro and info left, tickets right. Row 2 is 1fr so a tall panel doesn't push info down. */
+.event-detail-body {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 380px;
+  grid-template-rows: auto 1fr;
+  grid-template-areas:
+    'intro tickets'
+    'info  tickets';
+  column-gap: 36px;
+  align-items: start;
+}
+
+.event-detail-intro {
+  grid-area: intro;
+}
+
+.event-detail-info {
+  grid-area: info;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  margin-top: 24px;
+  max-width: 720px;
+}
+
+/* The ticket picker, or the "Sold out" panel */
+.event-detail-body > aside {
+  grid-area: tickets;
+}
+
+.event-detail-photo {
+  position: relative;
+  aspect-ratio: 2.6 / 1; /* a wide banner */
+  border-radius: 16px;
+  overflow: hidden;
+  background: var(--cream);
+}
+
+.event-detail-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Phone only: round back button on the photo */
+.event-detail-photo-back {
+  display: none;
+}
+
+.event-detail-status {
+  position: absolute;
+  left: 14px;
+  top: 14px;
+}
+
+.event-detail-title {
+  font-size: 28px;
+  font-weight: 700;
+  margin-top: 20px;
+}
+
+.event-detail-when {
+  font-size: 14px;
+  color: var(--text-muted);
+  margin-top: 4px;
+}
+
+/* Date · gates · where · tickets left, in boxes side by side */
+.event-detail-facts {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 10px;
+  margin: 0;
+}
+
+.event-detail-facts div {
+  padding: 12px 14px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--cream);
+}
+
+.event-detail-facts dt {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.event-detail-facts dd {
+  margin: 4px 0 0;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--near-black);
+}
+
+.event-detail-section h2 {
+  margin-bottom: 8px;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.event-detail-section p {
+  font-size: 15px;
+  line-height: 1.65;
+  color: var(--text);
+}
+
+.event-detail-section p + p {
+  margin-top: 10px;
+}
+
+/* Other events, full width under everything */
+.event-detail-more {
+  margin-top: 56px;
+  padding-top: 32px;
+  border-top: 1px solid var(--border);
+}
+
+.event-detail-more-heading {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.event-detail-more-heading h2 {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.event-detail-more-heading a {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--success);
+  text-decoration: none;
+}
+
+.event-detail-more-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px 24px;
+}
+
+/* Sold out, not on sale yet or closed: a panel in place of the ticket picker */
+.event-detail-closed {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 20px;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  background: var(--white);
+}
+
+.event-detail-closed h2 {
+  font-size: 18px;
+}
+
+.event-detail-closed .btn {
+  margin-top: 8px;
+}
+
+/* iPad and phone: one column. Tickets come straight after the title, then the details */
+@media (max-width: 1023px) {
+  .event-detail-body {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    grid-template-areas:
+      'intro'
+      'tickets'
+      'info';
+  }
+
+  .event-detail-body > aside {
+    margin-top: 24px;
+  }
+
+  .event-detail-info {
+    margin-top: 32px;
+  }
+
+  .event-detail-more-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* Phone, where the site header hides: photo edge to edge, back button and status on it. */
+@media (max-width: 720px) {
+  .event-detail {
+    padding: 0 16px 120px; /* room for the sticky ticket bar */
+  }
+
+  .event-detail-back,
+  .event-detail-year {
+    display: none;
+  }
+
+  .event-detail-photo {
+    aspect-ratio: 1.65 / 1;
+    margin: 0 -16px;
+    border-radius: 0;
+  }
+
+  .event-detail-photo-back {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    display: grid;
+    place-items: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.92);
+    box-shadow: 0 2px 8px rgba(22, 24, 28, 0.15);
+    font-size: 20px;
+    color: var(--near-black);
+    text-decoration: none;
+  }
+
+  .event-detail-status {
+    top: auto;
+    bottom: 12px;
+  }
+
+  .event-detail-title {
+    font-size: 22px;
+    margin-top: 16px;
+  }
+
+  .event-detail-facts {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .event-detail-more-grid {
+    grid-template-columns: 1fr;
+  }
+}

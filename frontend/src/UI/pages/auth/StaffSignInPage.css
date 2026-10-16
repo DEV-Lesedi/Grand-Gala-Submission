@@ -1,0 +1,12 @@
+/* No site header above it, so fill the whole screen */
+.staff-sign-in .auth-screen {
+  min-height: 100svh;
+}
+
+.auth-error {
+  padding: 10px 12px;
+  border-radius: 8px;
+  background: var(--danger-pale);
+  font-size: 13px;
+  color: var(--danger);
+}

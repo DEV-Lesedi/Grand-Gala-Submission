@@ -1,0 +1,181 @@
+.rates-section {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.rates-section-title,
+.rate-group-kind,
+.rate-list-title {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--staff-text-muted);
+}
+
+.rates-section-title span {
+  margin-left: 4px;
+  font-weight: 500;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+.rates-empty {
+  font-size: 13px;
+  color: var(--staff-text-muted);
+}
+
+/* One block per kind of price */
+.rate-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 12px;
+  border: 1px solid var(--staff-border);
+  border-radius: 12px;
+}
+
+.rate-group-kind {
+  color: var(--staff-text);
+}
+
+
+.rate-now {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 10px 12px;
+  border: 1px solid var(--success-border);
+  border-radius: 10px;
+  background: var(--success-palest);
+}
+
+.rate-now.is-empty {
+  border-color: var(--warning-border);
+  background: var(--warning-palest);
+}
+
+.rate-now-text {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.rate-now-label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--staff-green);
+}
+
+.rate-now-price {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--staff-text);
+}
+
+.rate-now-price small {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--staff-text-muted);
+}
+
+.rate-now-detail,
+.rate-now-then {
+  font-size: 12px;
+  color: var(--staff-text-muted);
+}
+
+.rate-now-warning {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--warning);
+}
+
+.rate-now-actions {
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 6px;
+}
+
+
+.rate-button {
+  padding: 5px 10px;
+  border: 1px solid var(--staff-border);
+  border-radius: 999px;
+  background: var(--white);
+  font: inherit;
+  font-size: 12px;
+  font-weight: 600;
+  white-space: nowrap;
+  color: var(--staff-text);
+  cursor: pointer;
+}
+
+.rate-button:hover {
+  border-color: var(--staff-green);
+}
+
+.rate-button.is-main {
+  border-color: var(--staff-green);
+  background: var(--staff-green);
+  color: var(--white);
+}
+
+
+.rate-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.rate-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 8px 10px;
+  border-radius: 8px;
+  background: var(--staff-sand);
+}
+
+.rate-item-text {
+  min-width: 0;
+  font-size: 13px;
+  color: var(--staff-text);
+}
+
+.rate-item-period {
+  display: block;
+  font-size: 12px;
+  color: var(--staff-text-muted);
+}
+
+.rate-item-waits {
+  display: block;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--warning);
+}
+
+.rate-item.is-past .rate-item-text {
+  opacity: 0.65;
+}
+
+.rates-link,
+.rate-past-toggle {
+  align-self: flex-start;
+  font-size: 13px;
+}
+
+.rate-past-toggle {
+  color: var(--staff-text-muted);
+}

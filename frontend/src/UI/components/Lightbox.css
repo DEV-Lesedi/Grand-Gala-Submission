@@ -1,0 +1,30 @@
+/* Wider popup, less padding: room for the photo */
+.modal.modal-photo {
+  max-width: 960px;
+}
+
+.modal-photo .modal-body {
+  padding: 12px;
+}
+
+/* Show the whole photo, never cropped */
+.lightbox-image {
+  display: block;
+  width: 100%;
+  max-height: 72vh;
+  object-fit: contain;
+  border-radius: var(--radius-medium);
+  background: var(--cream);
+}
+
+@media (max-width: 639px) {
+  /* Phone: centre the photo */
+  .modal-photo .modal-body {
+    display: flex;
+    align-items: center;
+  }
+
+  .lightbox-image {
+    max-height: none;
+  }
+}

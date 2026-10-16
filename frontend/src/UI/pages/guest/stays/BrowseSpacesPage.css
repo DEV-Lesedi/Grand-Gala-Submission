@@ -1,0 +1,112 @@
+.browse-bar {
+  border-bottom: 1px solid var(--border);
+  background: var(--white);
+}
+
+.browse-bar-inner {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  max-width: 1232px;
+  margin: 0 auto;
+  padding: 14px 24px;
+}
+
+.browse-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.browse-count {
+  margin-left: auto;
+  font-size: 13px;
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+
+.browse-content {
+  max-width: 1232px;
+  margin: 0 auto;
+  padding: 20px 24px 64px;
+}
+
+/* The page's heading is for screen readers; the boards show the cards straight away */
+.browse-title {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+}
+
+.browse-sort {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px;
+  margin-bottom: 14px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+.browse-sort .select {
+  width: auto;
+}
+
+.browse-sort .select-trigger {
+  min-height: 0;
+  padding: 6px 10px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--white);
+  font-size: 13px;
+  color: var(--near-black);
+}
+
+.browse-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px 24px;
+}
+
+/* iPad: the count goes under; two cards a row */
+@media (max-width: 1023px) {
+  .browse-bar-inner {
+    flex-wrap: wrap;
+  }
+
+  .browse-count {
+    margin-left: 0;
+    width: 100%;
+  }
+
+  .browse-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Phone: filters scroll sideways; one card a row */
+@media (max-width: 720px) {
+  .browse-bar-inner {
+    padding: 12px 16px;
+  }
+
+  .browse-filters {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+  }
+
+  .browse-filters .filter-chip {
+    flex-shrink: 0;
+  }
+
+  .browse-content {
+    padding: 16px 16px 40px;
+  }
+
+  .browse-grid {
+    grid-template-columns: 1fr;
+  }
+}

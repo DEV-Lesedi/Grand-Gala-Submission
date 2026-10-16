@@ -1,0 +1,148 @@
+.bookings-page {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+
+/* Wraps when it doesn't fit */
+.bookings-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+}
+
+.bookings-filters {
+  display: flex;
+  gap: 8px;
+  margin-right: auto;
+}
+
+.bookings-filters .filter-chip {
+  padding: 7px 14px;
+  font-size: 13px;
+  white-space: nowrap;
+}
+
+.bookings-filter-count {
+  font-weight: 500;
+  opacity: 0.55;
+}
+
+/* Search shrinks first */
+.bookings-search {
+  flex: 1 1 180px;
+  max-width: 260px;
+}
+
+
+.bookings-body {
+  display: grid;
+  grid-template-columns: 1fr 316px;
+  gap: 18px;
+  align-items: start;
+}
+
+.bookings-table-card .table th,
+.bookings-table-card .table td {
+  padding-left: 8px;
+  padding-right: 8px;
+}
+
+/* Smaller chips, more room for text */
+.bookings-table-card .status-chip {
+  padding: 4px 8px;
+  font-size: 10px;
+  letter-spacing: 0.02em;
+}
+
+.bookings-table-card .table td {
+  font-size: 13px;
+}
+
+/* Only the Booking column wraps */
+.bookings-table-card .table td:not(:nth-child(3)) {
+  white-space: nowrap;
+}
+
+.bookings-table-footer {
+  display: flex;
+  justify-content: space-between;
+  padding: 14px 16px;
+  border-top: 1px solid var(--staff-border);
+  font-size: 12px;
+  color: var(--staff-text-muted);
+}
+
+.bookings-pager {
+  display: flex;
+  gap: 16px;
+}
+
+.bookings-empty {
+  padding: 24px 16px;
+  font-size: 14px;
+  text-align: center;
+  color: var(--staff-text-muted);
+}
+
+/* Small laptop: full-width table, drawer slides over */
+@media (max-width: 1279px) {
+  .bookings-body {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* iPad/phone card list, hidden on desktop */
+.bookings-card-list {
+  display: none;
+}
+
+
+@media (max-width: 1023px) {
+  .bookings-toolbar {
+    flex-direction: column;
+    flex-wrap: nowrap; /* wrap would push past the screen */
+    align-items: stretch;
+  }
+
+  .bookings-search {
+    order: -1; /* search sits above the chips on mobile */
+    flex: none;
+    max-width: none;
+  }
+
+  /* Chips stay on one line and scroll sideways */
+  .bookings-filters {
+    margin-right: 0;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+
+  /* Desktop only */
+  .bookings-type,
+  .bookings-table-card {
+    display: none;
+  }
+
+  .bookings-body {
+    display: block;
+  }
+
+  .bookings-card-list {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+}
+
+@media (max-width: 639px) {
+  .bookings-page {
+    gap: 16px;
+  }
+
+  .bookings-card-list {
+    gap: 12px;
+  }
+}

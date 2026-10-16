@@ -1,0 +1,103 @@
+.enquiries-page {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.enquiries-filters {
+  display: flex;
+  gap: 8px;
+}
+
+.enquiries-filters .filter-chip {
+  flex-shrink: 0;
+  padding: 7px 14px;
+  font-size: 13px;
+  white-space: nowrap;
+}
+
+.enquiries-filter-count {
+  font-weight: 500;
+  opacity: 0.55;
+}
+
+
+.enquiries-body {
+  display: grid;
+  grid-template-columns: 1fr 316px;
+  gap: 18px;
+  align-items: start;
+}
+
+.enquiries-table-card .table th,
+.enquiries-table-card .table td {
+  padding-left: 8px;
+  padding-right: 8px;
+}
+
+.enquiries-table-card .table td {
+  font-size: 13px;
+}
+
+/* Smaller chips, more room for text */
+.enquiries-table-card .status-chip {
+  padding: 4px 8px;
+  font-size: 10px;
+  letter-spacing: 0.02em;
+}
+
+/* Only Guest and Event wrap */
+.enquiries-table-card .table td:nth-child(n + 3) {
+  white-space: nowrap;
+}
+
+.enquiries-empty {
+  padding: 24px 16px;
+  font-size: 14px;
+  text-align: center;
+  color: var(--staff-text-muted);
+}
+
+/* Small laptop: full-width table, panel slides over */
+@media (max-width: 1279px) {
+  .enquiries-body {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* iPad/phone card list, hidden on desktop */
+.enquiries-card-list {
+  display: none;
+}
+
+
+@media (max-width: 1023px) {
+  .enquiries-filters {
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+
+  .enquiries-table-card {
+    display: none;
+  }
+
+  .enquiries-body {
+    display: block;
+  }
+
+  .enquiries-card-list {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+}
+
+@media (max-width: 639px) {
+  .enquiries-page {
+    gap: 16px;
+  }
+
+  .enquiries-card-list {
+    gap: 12px;
+  }
+}

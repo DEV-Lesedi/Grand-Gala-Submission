@@ -1,0 +1,26 @@
+.segmented-control {
+  display: inline-flex;
+  gap: 2px;
+  padding: 4px;
+  border: 1px solid var(--staff-border);
+  border-radius: 10px;
+  background: var(--white);
+}
+
+.segmented-option {
+  padding: 6px 14px;
+  border: none;
+  border-radius: 7px;
+  background: transparent;
+  font: inherit;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--staff-text-muted);
+  cursor: pointer;
+}
+
+.segmented-option.is-active {
+  background: var(--staff-text);
+  color: var(--white);
+  font-weight: 600;
+}

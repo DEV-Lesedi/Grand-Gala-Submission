@@ -1,0 +1,83 @@
+.attendee-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* Buyer on the left, tickets on the right */
+.attendee {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.attendee-name {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--near-black);
+}
+
+.attendee-tickets {
+  text-align: right;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--near-black);
+}
+
+.attendee-detail {
+  display: block;
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--text-muted);
+}
+
+.attendee-empty {
+  padding: 16px 0;
+  color: var(--text-muted);
+}
+
+/* "Resend · Refund", or "Yes, refund R240 · Keep" */
+.attendee-actions,
+.attendee-confirm {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 4px;
+  font-size: 12px;
+}
+
+.attendee-actions .link-button,
+.attendee-confirm .link-button {
+  font-size: 12px;
+}
+
+.attendee-refund {
+  color: var(--danger);
+}
+
+.attendee-sent {
+  display: block;
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--success);
+}
+
+/* Phone: buyer above tickets, everything on the left */
+@media (max-width: 600px) {
+  .attendee {
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .attendee-tickets {
+    text-align: left;
+  }
+
+  .attendee-actions,
+  .attendee-confirm {
+    justify-content: flex-start;
+  }
+}

@@ -1,0 +1,124 @@
+/* Reference, chip and type on one line */
+.booking-drawer-top {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  white-space: nowrap;
+}
+
+.booking-drawer-reference {
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.booking-drawer-top .status-chip {
+  padding: 3px 6px;
+  font-size: 10px;
+  letter-spacing: 0;
+}
+
+.booking-drawer-type {
+  margin-left: auto;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: var(--staff-text-muted);
+}
+
+.booking-drawer-name {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--staff-text);
+}
+
+.booking-drawer-contact {
+  font-size: 13px;
+  color: var(--staff-text-muted);
+}
+
+
+.booking-drawer-lines {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding-top: 14px;
+  border-top: 1px solid var(--staff-border);
+}
+
+.booking-line {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  font-size: 13px;
+  color: var(--staff-text-muted);
+}
+
+.booking-line span:last-child {
+  color: var(--staff-text);
+}
+
+.booking-line.is-discount span:last-child {
+  color: var(--warning);
+}
+
+.booking-line.is-total {
+  padding-top: 12px;
+  border-top: 1px solid var(--staff-border);
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--staff-text);
+}
+
+.booking-drawer-payment {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  border-radius: 10px;
+  background: var(--staff-sand);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--staff-text);
+}
+
+/* Dot: green paid · amber waiting · grey nothing due */
+.booking-drawer-payment::before {
+  content: '';
+  flex-shrink: 0;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--staff-text-muted);
+}
+
+.booking-drawer-payment.is-success::before {
+  background: var(--staff-green);
+}
+
+.booking-drawer-payment.is-warning {
+  background: var(--warning-palest);
+  color: var(--warning);
+}
+
+.booking-drawer-payment.is-warning::before {
+  background: var(--warning);
+}
+
+
+.booking-drawer-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.booking-drawer-resend {
+  width: 100%;
+  padding: 13px;
+}
+
+.booking-drawer-cancel {
+  padding: 10px;
+  font-size: 14px;
+  color: var(--warning);
+}

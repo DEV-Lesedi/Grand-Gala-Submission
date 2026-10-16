@@ -1,0 +1,134 @@
+.select {
+  position: relative;
+  width: 100%;
+}
+
+/* Looks like the form's other boxes */
+.select-trigger {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  width: 100%;
+  min-height: 44px;
+  padding: 10px 12px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--white);
+  font: inherit;
+  font-size: 14px;
+  font-weight: 500;
+  text-align: left;
+  text-transform: none;
+  letter-spacing: 0;
+  color: var(--near-black);
+  cursor: pointer;
+}
+
+.select-trigger:focus-visible,
+.select-trigger[aria-expanded='true'] {
+  outline: none;
+  border-color: var(--green);
+  box-shadow: 0 0 0 3px var(--green-pale);
+}
+
+.select-trigger[aria-invalid='true'] {
+  border-color: var(--danger);
+}
+
+.select-trigger:disabled {
+  cursor: default;
+  background: var(--cream-light);
+  color: var(--text-muted);
+}
+
+/* "Choose…": the empty first option reads as a hint */
+.select-trigger.is-placeholder .select-value {
+  color: var(--text-muted);
+}
+
+.select-value {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* A small chevron drawn with two borders */
+.select-chevron {
+  flex-shrink: 0;
+  width: 8px;
+  height: 8px;
+  margin: -4px 2px 0 0;
+  border-right: 2px solid var(--text-muted);
+  border-bottom: 2px solid var(--text-muted);
+  transform: rotate(45deg);
+  transition: transform 150ms ease-out;
+}
+
+.select-trigger[aria-expanded='true'] .select-chevron {
+  margin-top: 4px;
+  transform: rotate(-135deg);
+}
+
+.select.is-bare .select-trigger {
+  min-height: 0;
+  padding: 0;
+  border: none;
+  background: none;
+  box-shadow: none;
+}
+
+/* The list, drawn at the end of <body> so no box can clip it; above popups (Modal is 50) */
+.select-list {
+  position: fixed;
+  z-index: 60;
+  max-height: 300px;
+  margin: 0;
+  padding: 6px;
+  overflow-y: auto;
+  list-style: none;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--white);
+  box-shadow: var(--shadow-card);
+  animation: select-open 120ms ease-out;
+}
+
+@keyframes select-open {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+}
+
+/* 44px rows: easy to hit with a finger */
+.select-option {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  min-height: 44px;
+  padding: 10px 12px;
+  border-radius: 8px;
+  font-size: 14px;
+  color: var(--near-black);
+  cursor: pointer;
+}
+
+.select-option.is-active {
+  background: var(--green-pale);
+}
+
+.select-option[aria-selected='true'] {
+  font-weight: 600;
+  color: var(--green);
+}
+
+.select-option.is-disabled {
+  color: var(--text-muted);
+  cursor: not-allowed;
+}
+
+.select-tick {
+  font-size: 13px;
+}

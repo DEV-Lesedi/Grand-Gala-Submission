@@ -1,0 +1,59 @@
+.quotation-totals {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.quotation-totals-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+.quotation-totals-row span:last-child {
+  color: var(--near-black);
+}
+
+.quotation-totals-row.is-discount span:last-child {
+  color: var(--warning);
+}
+
+.quotation-totals-row.is-total {
+  padding-top: 12px;
+  border-top: 1px solid var(--border);
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--near-black);
+}
+
+/* "– R [3000]": a small box, amber like the discount text */
+.quotation-discount-input {
+  display: flex;
+  align-items: center;
+  height: 30px;
+  padding-left: 8px;
+  border: 1px solid var(--border);
+  border-radius: 7px;
+  font-weight: 600;
+}
+
+.quotation-discount-input:focus-within {
+  outline: 2px solid var(--green);
+  outline-offset: -1px;
+}
+
+.quotation-discount-input input {
+  width: 68px;
+  height: 100%;
+  padding: 0 6px 0 2px;
+  border: none;
+  background: none;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--warning);
+  text-align: right;
+  outline: none;
+}

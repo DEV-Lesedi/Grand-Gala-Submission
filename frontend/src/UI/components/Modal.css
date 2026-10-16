@@ -1,0 +1,128 @@
+/* The dimmed layer over the whole screen; it centres the popup */
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 50; /* above headers, tab bars and panels */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background: rgba(22, 24, 28, 0.5);
+}
+
+/* Only the body scrolls */
+.modal {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 640px;
+  max-height: 100%;
+  border-radius: 16px;
+  background: var(--white);
+  box-shadow: 0 24px 60px rgba(22, 24, 28, 0.25);
+  color: var(--near-black);
+}
+
+.modal-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 20px 24px 16px;
+  border-bottom: 1px solid var(--border);
+}
+
+.modal-heading {
+  flex: 1;
+  min-width: 0;
+}
+
+.modal-title {
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.modal-subtitle {
+  margin-top: 2px;
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+.modal-close {
+  flex-shrink: 0;
+  width: 34px;
+  height: 34px;
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  background: var(--white);
+  font-size: 14px;
+  color: var(--near-black);
+  cursor: pointer;
+}
+
+.modal-body {
+  overflow-y: auto;
+  padding: 20px 24px;
+}
+
+.modal-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  padding: 16px 24px;
+  border-top: 1px solid var(--border);
+}
+
+/* Confirm dialogs: no empty body, so one divider is enough */
+.modal-header + .modal-footer {
+  border-top: none;
+}
+
+.modal-confirm {
+  max-width: 440px;
+}
+
+.modal-confirm .modal-body {
+  color: var(--text-muted);
+  font-size: 14px;
+}
+
+/* Phone: full screen, full-width buttons */
+@media (max-width: 639px) {
+  .modal-backdrop {
+    padding: 0;
+  }
+
+  .modal {
+    height: 100%;
+    max-width: none;
+    border-radius: 0;
+  }
+
+  .modal-header {
+    padding: 16px;
+  }
+
+  .modal-body {
+    flex: 1;
+    padding: 16px;
+  }
+
+  .modal-footer {
+    flex-direction: column-reverse; /* the main button ends up on top */
+    padding: 12px 16px 16px;
+  }
+
+  .modal-footer .btn {
+    width: 100%;
+  }
+
+  .modal-confirm {
+    height: auto;
+    max-width: calc(100% - 32px);
+    border-radius: 16px;
+  }
+
+  .modal-confirm .modal-body {
+    flex: none;
+  }
+}

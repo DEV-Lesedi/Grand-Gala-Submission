@@ -1,0 +1,315 @@
+/* Not sticky: it can be taller than the screen */
+.detail-panel.space-editor {
+  position: static;
+  gap: 18px;
+}
+
+/* Don't squash parts in the slide-over */
+.space-editor > * {
+  flex-shrink: 0;
+}
+
+
+.space-editor-cover {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  height: 110px;
+  padding: 12px 14px;
+  border-radius: 10px;
+  background-position: center;
+  background-size: cover;
+  overflow: hidden;
+}
+
+/* Blacked out: grey photo (the blend leaves the text alone) */
+.space-editor-cover.is-blacked-out {
+  background-color: #9a9690;
+  background-blend-mode: luminosity;
+}
+
+/* Darker at the bottom for the white name */
+.space-editor-cover::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(22, 24, 28, 0) 35%, rgba(22, 24, 28, 0.6) 100%);
+}
+
+.space-editor-name {
+  position: relative;
+  font-size: 19px;
+  font-weight: 700;
+  color: var(--white);
+}
+
+.space-editor-state {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 1;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.92);
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--staff-text-muted);
+}
+
+.space-editor-state.is-active {
+  color: var(--staff-text);
+}
+
+.space-editor-state.is-blacked-out {
+  background: var(--warning-pale);
+  color: var(--warning);
+}
+
+
+.space-editor-flags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.space-flag {
+  padding: 7px 12px;
+  border: 1px solid var(--staff-border);
+  border-radius: 999px;
+  background: var(--white);
+  font: inherit;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--staff-text-muted);
+  cursor: pointer;
+}
+
+.space-flag[aria-pressed='true'],
+.space-flag.is-info {
+  border-color: var(--success-border);
+  background: var(--success-pale);
+  color: var(--staff-green);
+}
+
+.space-flag.is-info {
+  cursor: default;
+}
+
+.space-editor-error {
+  margin-top: -8px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--danger);
+}
+
+
+.space-editor-fields {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.space-editor-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--staff-text-muted);
+}
+
+.space-editor-field .select-trigger,
+.space-editor-capacity {
+  height: 40px;
+  border: 1px solid var(--staff-border);
+  border-radius: 8px;
+  background: var(--white);
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0;
+  text-transform: none;
+  color: var(--staff-text);
+}
+
+.space-editor-field .select-trigger {
+  min-height: 0;
+  padding: 0 10px;
+}
+
+/* "[ 10 ] guests" in one box */
+.space-editor-capacity {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding-right: 12px;
+  color: var(--staff-text-muted);
+}
+
+.space-editor-capacity input {
+  width: 100%;
+  min-width: 0;
+  height: 100%;
+  padding: 0 0 0 12px;
+  border: none;
+  background: none;
+  font-size: 14px;
+  color: var(--staff-text);
+  outline: none;
+}
+
+.space-editor-capacity:focus-within,
+.space-editor-field .select-trigger:focus {
+  outline: 2px solid var(--staff-green);
+  outline-offset: -1px;
+}
+
+.space-editor-capacity:has(input[aria-invalid='true']) {
+  border-color: var(--danger);
+}
+
+
+.space-editor-heading {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
+.space-editor-heading h3 {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--staff-text-muted);
+}
+
+.space-editor-heading h3 span {
+  margin-left: 4px;
+  font-weight: 500;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+.space-editor-link {
+  flex-shrink: 0;
+  font-size: 13px;
+}
+
+.space-editor-empty {
+  padding: 8px 0;
+  font-size: 13px;
+  color: var(--staff-text-muted);
+}
+
+
+.space-blackouts {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin: 0;
+  padding: 0; /* lists are indented by default */
+  list-style: none;
+}
+
+/* One blackout */
+
+.space-blackout {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 8px 10px;
+  border-radius: 8px;
+  background: var(--staff-sand);
+  font-size: 13px;
+}
+
+/* The amber square, lined up with the dates line */
+.space-blackout::before {
+  content: '';
+  flex-shrink: 0;
+  width: 8px;
+  height: 8px;
+  margin-top: 6px;
+  border-radius: 2px;
+  background: var(--warning);
+}
+
+/* Dates, then the reason below */
+.space-blackout-text {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.space-blackout-dates {
+  font-weight: 600;
+  color: var(--staff-text);
+}
+
+.space-blackout.is-today {
+  background: var(--warning-pale);
+}
+
+/* "NOW" tag */
+.space-blackout-now {
+  margin-left: 8px;
+  padding: 1px 6px;
+  border-radius: 999px;
+  background: var(--warning);
+  font-size: 9.5px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  vertical-align: 1px;
+  color: var(--white);
+}
+
+/* Inherited from the villa */
+.space-blackout-from {
+  font-size: 12px;
+  font-style: italic;
+  color: var(--staff-text-muted);
+}
+
+.space-blackout-reason {
+  font-size: 12.5px;
+  color: var(--staff-text-muted);
+}
+
+.space-blackout-remove {
+  flex-shrink: 0;
+  width: 26px;
+  height: 26px;
+  border: none;
+  border-radius: 50%;
+  background: none;
+  font-size: 16px;
+  color: var(--staff-text-muted);
+  cursor: pointer;
+}
+
+.space-blackout-remove:hover {
+  background: var(--staff-sand);
+  color: var(--warning);
+}
+
+
+.space-editor-save .btn {
+  width: 100%;
+  padding: 13px;
+}
+
+.space-editor-status {
+  min-height: 18px;
+  margin-top: 6px;
+  font-size: 12px;
+  text-align: center;
+  color: var(--staff-text-muted);
+}

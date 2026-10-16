@@ -1,0 +1,36 @@
+.status-chip {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 10px;
+  border-radius: var(--radius-pill);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+/* Tones: green settled · amber waiting · grey inactive · plum new */
+.tone-success {
+  background: var(--success-pale);
+  color: var(--success);
+}
+
+.tone-warning {
+  background: var(--warning-pale);
+  color: var(--warning);
+}
+
+.tone-muted {
+  background: var(--grey-pale);
+  color: var(--grey);
+}
+
+.tone-new {
+  background: var(--new-pale);
+  color: var(--new);
+}
+
+/* A chip is one label: never break it over two lines */
+.status-chip {
+  white-space: nowrap;
+}

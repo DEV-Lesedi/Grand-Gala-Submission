@@ -1,0 +1,236 @@
+/* The bar under the site header: search pill, quick links, Filters */
+.home-bar {
+  border-bottom: 1px solid var(--border);
+  background: var(--white);
+}
+
+.home-bar-inner {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  max-width: 1232px;
+  margin: 0 auto;
+  padding: 14px 24px;
+}
+
+.home-quick-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 22px;
+  flex: 1;
+}
+
+.home-quick-links a {
+  font-size: 14px;
+  color: var(--text-muted);
+  text-decoration: none;
+}
+
+.home-quick-links a:hover {
+  color: var(--near-black);
+}
+
+.home-content {
+  max-width: 1232px;
+  margin: 0 auto;
+  padding: 24px 24px 64px;
+}
+
+/* Photo with the headline on the left, "What are you planning?" on the right */
+.home-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+  gap: 24px;
+}
+
+.home-hero-photo {
+  position: relative;
+  min-height: 300px;
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.home-hero-photo img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* A dark fade at the bottom so the white headline stays readable */
+.home-hero-text {
+  position: absolute;
+  inset: auto 0 0 0;
+  padding: 80px 26px 26px;
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.55));
+  color: var(--white);
+}
+
+.home-hero-text p {
+  font-family: Georgia, 'Times New Roman', serif;
+  font-style: italic;
+  font-size: 14px;
+  opacity: 0.9;
+}
+
+.home-hero-text h1 {
+  max-width: 420px;
+  margin-top: 4px;
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--white);
+}
+
+.home-plan {
+  display: flex;
+  flex-direction: column;
+  padding: 24px;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  background: var(--cream-light);
+}
+
+.home-plan h2 {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 14px;
+}
+
+.home-plan ul {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.home-plan li a {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 13px 16px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--white);
+  text-decoration: none;
+}
+
+.home-plan li a:hover {
+  border-color: var(--text-muted);
+}
+
+.home-plan li strong {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--near-black);
+}
+
+.home-plan li span {
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+.home-plan-arrow {
+  margin-left: auto;
+}
+
+.home-plan-summary {
+  margin-top: auto;
+  padding-top: 18px;
+  border-top: 1px solid var(--border);
+}
+
+.home-plan-summary strong {
+  font-size: 14px;
+  color: var(--near-black);
+}
+
+.home-plan-summary p {
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+.home-section {
+  margin-top: 32px;
+}
+
+.home-section-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: 14px;
+}
+
+.home-section-header h2 {
+  font-size: 19px;
+  font-weight: 700;
+}
+
+.home-section-header a {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--success);
+  text-decoration: none;
+}
+
+.home-spaces {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.home-events {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+/* iPad: hero stacks; two spaces a row; the quick links wrap under the search */
+@media (max-width: 1023px) {
+  .home-bar-inner {
+    flex-wrap: wrap;
+  }
+
+  .home-hero {
+    grid-template-columns: 1fr;
+  }
+
+  .home-spaces,
+  .home-events {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Phone: one column; the quick links scroll sideways; Filters is in Browse */
+@media (max-width: 720px) {
+  .home-bar-inner {
+    padding: 12px 16px;
+    gap: 12px;
+  }
+
+  .home-quick-links {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+
+  .home-filters {
+    display: none;
+  }
+
+  .home-content {
+    padding: 16px 16px 40px;
+  }
+
+  .home-hero-text h1 {
+    font-size: 24px;
+  }
+
+  .home-spaces,
+  .home-events {
+    grid-template-columns: 1fr;
+  }
+}

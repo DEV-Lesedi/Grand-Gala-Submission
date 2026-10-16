@@ -1,0 +1,75 @@
+/* Name and chip side by side in the popup heading */
+.enquiry-details-title {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+}
+
+.enquiry-details-title .status-chip {
+  padding: 3px 8px;
+  font-size: 10px;
+  letter-spacing: 0.02em;
+}
+
+.enquiry-details {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+/* A thin line between sections */
+.enquiry-details-section + .enquiry-details-section {
+  padding-top: 20px;
+  border-top: 1px solid var(--border);
+}
+
+.enquiry-details-heading {
+  margin-bottom: 12px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--near-black);
+}
+
+/* Popups are outside the staff layout: site-wide colours */
+.enquiry-details .detail-facts dt {
+  color: var(--text-muted);
+}
+
+.enquiry-details .detail-facts dd {
+  color: var(--near-black);
+  overflow-wrap: anywhere; /* long email addresses break instead of overflowing on phone */
+}
+
+.enquiry-details-notes {
+  margin: 0;
+  padding: 12px 14px;
+  border-left: 2px solid var(--border);
+  border-radius: 0 8px 8px 0;
+  background: var(--cream);
+  font-size: 14px;
+  line-height: 1.55;
+}
+
+/* Requested changes: one quote per request, the date under it */
+.enquiry-details-changes {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.enquiry-details-change-date {
+  margin-top: 4px;
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+.enquiry-details-quote {
+  font-size: 14px;
+  font-weight: 600;
+}

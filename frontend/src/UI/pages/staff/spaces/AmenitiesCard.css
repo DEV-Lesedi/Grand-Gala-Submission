@@ -1,0 +1,76 @@
+.amenities-card {
+  padding: 0;
+  overflow: hidden;
+}
+
+.amenities-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 14px 18px;
+  border-bottom: 1px solid var(--staff-border);
+}
+
+.amenities-header h2 {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--staff-text);
+}
+
+.amenities-add {
+  font-size: 13px;
+}
+
+/* Desktop: three amenities per row with lines between them */
+.amenities-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.amenity {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 14px 18px;
+  border-right: 1px solid var(--staff-border);
+  border-bottom: 1px solid var(--staff-border);
+  margin-bottom: -1px; /* the last row's bottom line sits on the card's own border */
+}
+
+.amenity:nth-child(3n) {
+  border-right: none;
+}
+
+.amenity-name {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--staff-text);
+}
+
+.amenity-price {
+  display: block;
+  font-size: 13px;
+  color: var(--staff-text-muted);
+}
+
+.amenity.is-off .amenity-name,
+.amenity.is-off .amenity-price {
+  opacity: 0.55;
+}
+
+/* iPad/phone: one amenity per line */
+@media (max-width: 1023px) {
+  .amenities-list {
+    grid-template-columns: 1fr;
+  }
+
+  .amenity {
+    border-right: none;
+  }
+}

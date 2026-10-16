@@ -1,0 +1,120 @@
+.stay-panel {
+  position: sticky;
+  top: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 22px;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  background: var(--white);
+  box-shadow: var(--shadow-card);
+}
+
+.stay-panel-price {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--near-black);
+}
+
+.stay-panel-price span {
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--text-muted);
+}
+
+/* Check-in | Check-out / Guests, in one bordered box */
+.stay-panel-box {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.stay-panel-box label {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 10px 14px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--near-black);
+}
+
+.stay-panel-box label + label {
+  border-left: 1px solid var(--border);
+}
+
+.stay-panel-box label.is-wide {
+  grid-column: 1 / -1;
+  border-left: none;
+  border-top: 1px solid var(--border);
+}
+
+.stay-panel-box input {
+  padding: 0;
+  border: none;
+  background: none;
+  font-size: 13px;
+  font-weight: 400;
+  letter-spacing: 0;
+  text-transform: none;
+  color: var(--text);
+}
+
+.stay-panel-box input:focus {
+  outline: none;
+}
+
+.stay-panel-box label:focus-within {
+  background: var(--cream-light);
+}
+
+.stay-panel-reserve {
+  width: 100%;
+  padding-top: 13px;
+  padding-bottom: 13px;
+  font-size: 15px;
+}
+
+.stay-panel-blocker {
+  margin-top: -6px;
+  text-align: center;
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+.stay-panel-lines {
+  margin: 0;
+  padding-top: 12px;
+  border-top: 1px solid var(--border);
+}
+
+.stay-panel-lines div {
+  display: flex;
+  justify-content: space-between;
+  padding: 5px 0;
+  font-size: 13.5px;
+}
+
+.stay-panel-lines dd {
+  margin: 0;
+}
+
+.stay-panel-lines .is-total {
+  margin-top: 6px;
+  padding-top: 12px;
+  border-top: 1px solid var(--border);
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--near-black);
+}
+
+@media (max-width: 1023px) {
+  .stay-panel {
+    position: static;
+  }
+}

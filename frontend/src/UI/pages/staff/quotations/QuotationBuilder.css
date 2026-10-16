@@ -1,0 +1,257 @@
+.quotation-builder {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+/* Title and chip on one line in the desktop header */
+.quotation-builder-title {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+}
+
+.quotation-builder-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.quotation-builder-actions .btn,
+.quotation-builder-mobile-actions .btn {
+  white-space: nowrap;
+}
+
+.quotation-builder-back {
+  align-self: flex-start;
+  margin-bottom: -8px; /* sits close to the title it belongs to */
+  font-size: 14px;
+}
+
+/* iPad/phone only */
+.quotation-builder-mobile-actions {
+  display: none;
+}
+
+.quotation-builder-banner {
+  padding: 12px 16px;
+  border-radius: 10px;
+  background: var(--staff-sand);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--staff-text);
+}
+
+.quotation-builder-banner.is-success {
+  background: var(--success-pale);
+  color: var(--staff-green);
+}
+
+.quotation-builder-banner.is-warning {
+  background: var(--warning-pale);
+  color: var(--warning);
+}
+
+/* Builder on the left, sidebar on the right */
+
+.quotation-builder-body {
+  display: grid;
+  grid-template-columns: 1fr 300px;
+  gap: 18px;
+  align-items: start;
+}
+
+.quotation-builder-main {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  min-width: 0;
+}
+
+/* Version pills on the left, "Valid until [date]" on the right */
+.quotation-builder-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px 16px;
+}
+
+.quotation-versions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.quotation-version {
+  padding: 7px 14px;
+  border: 1px solid var(--staff-border);
+  border-radius: var(--radius-pill);
+  font-size: 13px;
+  color: var(--staff-text-muted);
+  white-space: nowrap;
+}
+
+.quotation-version.is-latest {
+  border-color: var(--staff-dark);
+  background: var(--staff-dark);
+  font-weight: 600;
+  color: var(--white);
+}
+
+/* Draft: dashed until sent */
+.quotation-version.is-draft {
+  border-style: dashed;
+  border-color: var(--staff-green);
+  font-weight: 600;
+  color: var(--staff-green);
+}
+
+.quotation-valid-until {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: var(--staff-text-muted);
+}
+
+/* Date empty or in the past */
+.quotation-valid-until-error {
+  flex-basis: 100%;
+  text-align: right;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--danger);
+}
+
+.quotation-valid-until-picker {
+  width: auto;
+}
+
+.quotation-valid-until-picker .date-picker-trigger {
+  height: 34px;
+  padding: 0 10px;
+  border: 1px solid var(--staff-border);
+  border-radius: 8px;
+  font-size: 13px;
+  color: var(--staff-text);
+}
+
+.quotation-valid-until-picker .date-picker-trigger[aria-invalid='true'] {
+  border-color: var(--danger);
+}
+
+
+.quotation-builder-bottom {
+  display: grid;
+  grid-template-columns: 1fr 300px;
+  gap: 14px;
+  align-items: start;
+}
+
+.quotation-notes,
+.quotation-totals-card {
+  padding: 16px 18px;
+}
+
+.quotation-card-label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--staff-text-muted);
+}
+
+.quotation-notes textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid var(--staff-border);
+  border-radius: 8px;
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--staff-text);
+  resize: vertical;
+}
+
+.quotation-notes textarea:focus {
+  outline: 2px solid var(--staff-green);
+  outline-offset: -1px;
+}
+
+.quotation-notes textarea:disabled {
+  background: var(--staff-sand);
+}
+
+/* Small laptop: the sidebar drops below */
+
+@media (max-width: 1279px) {
+  .quotation-builder-body {
+    grid-template-columns: 1fr;
+  }
+
+  .quotation-builder-bottom {
+    grid-template-columns: 1fr 280px;
+  }
+}
+
+
+@media (max-width: 1023px) {
+  /* Dark bar above the back button */
+  .quotation-builder .mobile-header {
+    order: -1;
+  }
+
+  .quotation-builder-back {
+    margin-bottom: 0;
+  }
+
+  /* Buttons move to the bottom */
+  .quotation-builder-mobile-actions {
+    display: flex;
+    gap: 10px;
+  }
+
+  .quotation-builder-mobile-actions .btn {
+    flex: 1;
+    padding: 13px;
+  }
+}
+
+@media (max-width: 639px) {
+  .quotation-builder {
+    gap: 14px;
+  }
+
+  .quotation-builder-bottom {
+    grid-template-columns: 1fr;
+  }
+
+  /* Pills scroll sideways on one line instead of stacking */
+  .quotation-builder-toolbar {
+    flex-direction: column;
+    flex-wrap: nowrap; /* wrap would push past the screen */
+    align-items: stretch;
+  }
+
+  .quotation-versions {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+
+  .quotation-valid-until {
+    justify-content: space-between;
+  }
+
+  .quotation-valid-until input {
+    flex: 1;
+    max-width: 200px;
+  }
+
+  /* Send on top (the main action), Preview underneath */
+  .quotation-builder-mobile-actions {
+    flex-direction: column-reverse;
+  }
+}

@@ -1,0 +1,277 @@
+.reserve {
+  min-height: 100svh;
+  background: var(--white);
+}
+
+/* Choices on the left, the summary on the right */
+.reserve-body {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 372px;
+  gap: 44px;
+  align-items: start;
+  max-width: 1232px;
+  margin: 0 auto;
+  padding: 28px 40px 64px;
+}
+
+.reserve-main h1 {
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 14px;
+}
+
+.reserve-main h2 {
+  font-size: 18px;
+  font-weight: 700;
+  margin: 24px 0 12px;
+}
+
+/* Only for screen readers */
+.reserve-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+}
+
+.reserve-options {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+
+/* One option as a card; the real radio button sits inside it */
+.reserve-option {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 16px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--white);
+  cursor: pointer;
+}
+
+.reserve-option input {
+  accent-color: var(--green);
+}
+
+.reserve-option.is-selected,
+.reserve-option:has(input:checked) {
+  border: 2px solid var(--green);
+  padding: 13px 15px;
+  background: var(--success-palest);
+}
+
+.reserve-option.is-off {
+  opacity: 0.55;
+}
+
+.reserve-option img {
+  width: 74px;
+  height: 56px;
+  border-radius: 8px;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.reserve-option-text,
+.reserve-option-price {
+  display: flex;
+  flex-direction: column;
+}
+
+.reserve-option-text {
+  flex: 1;
+}
+
+.reserve-option strong {
+  font-size: 15px;
+  color: var(--near-black);
+}
+
+.reserve-option-text span,
+.reserve-option-price span {
+  font-size: 12.5px;
+  color: var(--text-muted);
+}
+
+.reserve-option-price {
+  align-items: flex-end;
+}
+
+.reserve-dates {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-top: 18px;
+}
+
+.reserve-dates label {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.reserve-dates input {
+  padding: 11px 12px;
+  border: 1px solid var(--border);
+  border-radius: 9px;
+  font-size: 14px;
+  color: var(--near-black);
+}
+
+.reserve-extras {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.reserve-extra {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 16px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--near-black);
+  cursor: pointer;
+}
+
+.reserve-extra input {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--green);
+}
+
+.reserve-extra-price {
+  margin-left: auto;
+  font-weight: 400;
+  color: var(--text-muted);
+}
+
+.reserve-summary {
+  position: sticky;
+  top: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 20px;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  background: var(--white);
+  box-shadow: var(--shadow-card);
+}
+
+.reserve-summary-top {
+  display: flex;
+  gap: 12px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--border);
+}
+
+.reserve-summary-top img {
+  width: 78px;
+  height: 64px;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+.reserve-summary-top > span {
+  display: flex;
+  flex-direction: column;
+}
+
+.reserve-summary-top strong {
+  font-size: 15px;
+  color: var(--near-black);
+}
+
+.reserve-summary-top span span {
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+.reserve-summary-lines {
+  margin: 0;
+}
+
+.reserve-summary-lines div {
+  display: flex;
+  justify-content: space-between;
+  padding: 5px 0;
+  font-size: 13.5px;
+}
+
+.reserve-summary-lines dd {
+  margin: 0;
+  color: var(--near-black);
+}
+
+.reserve-summary-lines .is-total {
+  margin-top: 6px;
+  padding-top: 12px;
+  border-top: 1px solid var(--border);
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--near-black);
+}
+
+.reserve-continue {
+  width: 100%;
+  padding-top: 13px;
+  padding-bottom: 13px;
+  font-size: 15px;
+}
+
+.reserve-blocker {
+  margin-top: -6px;
+  text-align: center;
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+/* iPad: the summary goes under the choices */
+@media (max-width: 1023px) {
+  .reserve-body {
+    grid-template-columns: 1fr;
+    gap: 24px;
+    padding: 20px 24px 48px;
+  }
+
+  .reserve-summary {
+    position: static;
+  }
+}
+
+/* Phone: one column throughout */
+@media (max-width: 720px) {
+  .reserve-body {
+    padding: 16px 16px 40px;
+  }
+
+  .reserve-dates,
+  .reserve-extras {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* "Change room or villa": opens the other places under the chosen one */
+.reserve-change {
+  align-self: flex-start;
+  margin-top: 10px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--green);
+}
