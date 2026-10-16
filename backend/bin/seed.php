@@ -9,6 +9,7 @@ use GrandGala\Database\Migrator;
 use GrandGala\Database\Seeds\AccountsSeed;
 use GrandGala\Database\Seeds\DemoBookingsSeed;
 use GrandGala\Database\Seeds\DemoSeed;
+use GrandGala\Database\Seeds\VenueSeed;
 
 require dirname(__DIR__) . '/config/bootstrap.php';
 
@@ -18,6 +19,8 @@ if (($_ENV['APP_ENV'] ?? 'local') === 'production') {
 }
 
 Migrator::migrate();
+// The venue, booking types and main spaces first: the other seeds build on them.
+VenueSeed::run();
 // AccountsSeed first: user_type rows (including customer) that the other seeds need.
 AccountsSeed::run();
 DemoSeed::run();

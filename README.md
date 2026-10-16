@@ -84,8 +84,8 @@ enquiry; then as staff, open Enquiries, build a quotation and send it; back as t
 
 ## Tests
 
-This repo holds about 200 of the most important tests (152 backend, 54 frontend); the full suites (about 920 backend
-and 130 frontend tests) are in the team repositories.
+There are three kinds of tests: **242 backend tests**, **54 frontend unit tests** and **55 browser tests**. The full
+suites (about 920 backend and 130 frontend tests) are in the team repositories.
 
 **Backend** (needs its own test database, never the one you use day to day):
 
@@ -95,19 +95,37 @@ cp .env .env.testing      # then set APP_ENV=testing, APP_TODAY=2026-09-04 and a
 vendor/bin/phpunit
 ```
 
-The tests cover reservations (including two guests booking the same dates at the same moment), availability, holds,
-the booking lifecycle, the scheduled job, stays, enquiries, quotations, events, tickets, payments and PayFast checks,
-cancelling, accounts, sign-in and which routes each role may use.
+The tests cover reservations (including two guests booking, paying or resetting a password at the same moment),
+availability, holds, the booking lifecycle, the scheduled job, stays, enquiries, quotations, events, tickets,
+payments and PayFast checks, cancelling, accounts, sign-in, rate limits, My bookings (a guest can't open someone
+else's booking) and which routes each role may use.
 
-**Frontend:**
+**Frontend unit tests:**
 
 ```bash
 cd frontend
 npx vitest run
 ```
 
-The tests cover stays (availability and pricing), checkout (every kind of order and paying), the booking calendar
-and the dropdown.
+These cover stays (availability and pricing), checkout (every kind of order and paying), the booking calendar and
+the dropdown.
+
+**Browser tests (Playwright)** drive a real browser against the running app: sign-up, sign-in and access rules, every
+public page, phone/tablet/desktop layouts, and installing the app and using it offline. Start the backend
+(`composer serve`) on a seeded database first, then:
+
+```bash
+cd frontend
+npx playwright install chromium          # once
+E2E_DB_NAME=grand_gala_gardens E2E_DB_USER=root E2E_DB_PASSWORD=... \
+E2E_STAFF_PASSWORD=<your DEMO_ACCOUNT_PASSWORD> npm run test:e2e
+```
+
+The `E2E_DB_*` settings let the tests clear the sign-up rate limit between runs (defaults: `127.0.0.1:3306`, user
+`root`, database `grand_gala_gardens`).
+
+**Performance (Lighthouse):** build and preview the frontend (`npm run build && npm run preview`), then
+`npm run test:lighthouse` runs Lighthouse three times and saves the scores in `e2e/test-results/lighthouse/`.
 
 ## Folder guide
 

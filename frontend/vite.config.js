@@ -1,9 +1,12 @@
 import react from '@vitejs/plugin-react'
 import { defineConfig } from 'vite'
+import { configDefaults } from 'vitest/config'
 import { VitePWA } from 'vite-plugin-pwa'
 
 // https://vite.dev/config/
 export default defineConfig({
+  // Vitest runs the unit tests in src/; the e2e/ folder is Playwright's (npm run test:e2e)
+  test: { exclude: [...configDefaults.exclude, 'e2e/**'] },
   plugins: [
     react(),
     VitePWA({

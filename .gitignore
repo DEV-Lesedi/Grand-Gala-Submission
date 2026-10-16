@@ -21,3 +21,7 @@ backend/public/uploads/*
 .idea/
 .vscode/
 *.log
+
+# Playwright and Lighthouse output
+frontend/e2e/report/
+frontend/e2e/test-results/
